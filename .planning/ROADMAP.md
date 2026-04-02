@@ -34,7 +34,9 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Platform auto-detection logic is documented in the rules file: given an Apple URL, Google Play URL, numeric ID, or bundle ID, the correct platform is identified
   3. The rules file contains an explicit directive prohibiting fabrication of search volume data, and defines the OBSERVED vs ESTIMATED labeling convention
   4. Scoring rubric weights and category breakdowns (Metadata, Visibility, Conversion) are defined in the rules file so commands can reference them
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 01-01-PLAN.md — Create ASO domain knowledge rules file with verified character limits, platform detection, scoring rubric, data integrity directives, and ranking factors
 
 ### Phase 2: Subagent Infrastructure
 **Goal**: Any skill can spawn a parallel analyst agent that searches the web for competitor data and returns structured results
@@ -143,7 +145,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Domain Knowledge Foundation | 0/0 | Not started | - |
+| 1. Domain Knowledge Foundation | 0/1 | Planning complete | - |
 | 2. Subagent Infrastructure | 0/0 | Not started | - |
 | 3. Audit Metadata Analysis | 0/0 | Not started | - |
 | 4. Audit Scoring and Competitive Context | 0/0 | Not started | - |
