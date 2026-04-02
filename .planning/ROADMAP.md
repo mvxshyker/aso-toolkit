@@ -80,7 +80,7 @@ Plans:
 **Plans:** 2 plans
 Plans:
 - [x] 04-01-PLAN.md — Add Rating/Review Summary and Weighted Scoring System sections to audit command
-- [ ] 04-02-PLAN.md — Add Competitive Context (aso-analyst subagent) and Prioritized Recommendations sections, update Analysis Summary
+- [x] 04-02-PLAN.md — Add Competitive Context (aso-analyst subagent) and Prioritized Recommendations sections, update Analysis Summary
 
 ### Phase 5: Audit Output and Reporting
 **Goal**: The audit command produces a persistent, well-structured report file and a quick inline summary
