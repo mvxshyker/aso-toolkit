@@ -346,6 +346,165 @@ Identify which intent group has the most keywords and which has gaps. Provide a 
 
 ---
 
+## iOS Keyword Field String
+
+This section generates a ready-to-paste iOS keyword field string. It applies ONLY to iOS apps.
+
+**If the app's platform is Android:** Print the following and skip to the next section:
+
+`iOS keyword field not applicable -- see Google Play Keyword Integration below.`
+
+### Construction Rules
+
+Reference: iOS Keyword Field Rules in `rules/aso-domain.md`. The rules are restated here for generation convenience:
+
+1. **Comma-separated, NO spaces after commas** -- Spaces consume characters. Write `keyword1,keyword2` not `keyword1, keyword2`.
+2. **Do NOT include words already in the app's Title or Subtitle** -- Apple auto-indexes title + subtitle + keyword field together. Repeating words wastes space.
+3. **Prefer singular forms over plural** -- Apple indexes both singular and plural from the singular form. Use "tracker" not "trackers".
+4. **Do NOT include competitor brand names** -- Policy violation risk. Apple may reject the update.
+5. **Omit prepositions and articles** -- "the", "a", "for", "and", "of", "in", "to", "with" waste space.
+6. **Use every available character** -- Unused space is wasted ranking opportunity. Target 95-100 characters used.
+
+### Keyword Selection
+
+From the scored keyword list (Relevance Scoring section output), select keywords for the field using this priority:
+
+1. **Tier 1: Relevance 8-10 keywords NOT already in the title or subtitle.** These are the highest-value terms. If user provided volume data [USER-PROVIDED], use volume as a tiebreaker within this tier (higher volume first). If popularity tiers are available [ESTIMATED], prefer High/Medium over Low/Unknown within this tier.
+2. **Tier 2: Relevance 6-7 keywords NOT already in the title or subtitle.** Fill remaining space with these secondary terms, applying the same tiebreaker logic.
+3. **Word decomposition:** Convert multi-word phrases to individual words (e.g., "guided meditation" contributes "guided" and "meditation" as separate terms). Only include a word if it is not already covered by another keyword in the field or by the title/subtitle.
+4. **Singular conversion:** Convert all plural forms to singular (e.g., "exercises" becomes "exercise").
+5. **Strip filler:** Remove prepositions, articles, and filler words before inserting into the string.
+6. **Deduplication:** If a word is already present in the keyword string (from a previous keyword's decomposition), do not add it again.
+
+### Generated Keyword String
+
+Build and display the keyword field string following the construction rules above:
+
+```
+keyword1,keyword2,keyword3,related,term,synonym
+```
+
+After the string, display the character count:
+
+`{N}/100 characters used ({remaining} remaining)`
+
+- **If the string exceeds 100 characters:** Trim keywords from the lowest-priority end (lowest relevance tier, then lowest volume/popularity within that tier) until the string fits within 100 characters. Note which keywords were removed and why.
+- **If the string is under 90 characters:** Note: `"Consider adding more terms to maximize coverage -- {remaining} characters available."`
+- **If the string is between 90 and 100 characters:** No additional note needed -- this is optimal usage.
+
+### Coverage Report
+
+After the generated string, show what the combined title + subtitle + keyword field covers:
+
+1. **Unique searchable terms:** Count how many unique searchable words the combined metadata produces (title words + subtitle words + keyword field words, deduplicated). Display as: `"{N} unique searchable terms from combined metadata (title + subtitle + keyword field)"`
+2. **High-relevance overflow:** Identify any keywords with relevance 8+ that could NOT fit in the keyword field. List them with their relevance score.
+3. **Swap suggestions:** If critical keywords (relevance 9-10) were excluded due to space, note: `"Overflow -- consider swapping with lower-priority terms in the keyword field:"` and list the specific swap recommendations (which low-priority keyword to remove, which high-priority keyword to add).
+
+`Keyword field string is an optimized recommendation based on relevance analysis and formatting rules. [ESTIMATED]`
+
+---
+
+## Google Play Keyword Integration
+
+This section provides keyword integration guidance for Google Play (Android) app descriptions. It applies ONLY to Google Play (Android) apps.
+
+**If the app's platform is iOS:** Print the following and skip to the next section:
+
+`Google Play integration not applicable -- see iOS Keyword Field String above.`
+
+### Integration Strategy
+
+Google Play indexes the full description for search. Unlike iOS (which has a dedicated keyword field), Android keyword optimization happens by naturally weaving keywords into the description text. There is no hidden keyword field -- every keyword must appear in user-visible metadata.
+
+**Benchmark:** Approximately 1 exact keyword match per 250 characters of description (reference: `rules/aso-domain.md`). For a 2,000-character description, target 8 keyword instances. For a 4,000-character description (maximum), target up to 16 keyword instances.
+
+### Priority Keywords for Description
+
+From the scored keyword list, select the top 15-20 keywords with relevance 6+ that should appear in the full description. Present as a table sorted by priority:
+
+| Priority | Keyword | Relevance | Suggested Placement |
+|----------|---------|-----------|---------------------|
+| 1 | {keyword} | {X}/10 | First paragraph (front-load) |
+| 2 | {keyword} | {X}/10 | First paragraph |
+| ... | ... | ... | Feature list / mid-description / closing |
+
+**Placement guidance by relevance tier:**
+
+- **Relevance 9-10:** First paragraph. Front-load these keywords -- the opening 250 characters carry the most ranking weight. Place the single most important keyword in the first sentence.
+- **Relevance 7-8:** Feature descriptions or mid-description paragraphs. These keywords should appear naturally when describing the app's capabilities.
+- **Relevance 6:** Closing section or secondary feature mentions. Lower-priority terms that still deserve inclusion for long-tail search coverage.
+
+If user provided volume data [USER-PROVIDED], include it as a column and factor it into priority ordering (higher volume = higher priority within the same relevance tier).
+
+### Title and Short Description Keywords
+
+Separately list the top 3-5 keywords that should appear in the Google Play title (30-character limit) and short description (80-character limit). These should be the highest-relevance, most competitive keywords from the analysis.
+
+**Title keywords (top 3):**
+| Keyword | Relevance | Rationale |
+|---------|-----------|-----------|
+| {keyword} | {X}/10 | {Why this keyword belongs in the title} |
+
+**Short description keywords (top 5):**
+| Keyword | Relevance | Rationale |
+|---------|-----------|-----------|
+| {keyword} | {X}/10 | {Why this keyword belongs in the short description} |
+
+Note: Title and short description keywords should also appear in the full description for reinforcement -- Google Play rewards consistency across all metadata fields.
+
+### Density Guidance
+
+For a typical 2,000-4,000 character description:
+
+- **Target:** 8-16 keyword instances across the full description (benchmark: ~1 per 250 characters)
+- **Per-keyword frequency:** Each priority keyword should appear 1-3 times:
+  - 1 time: Sufficient for most keywords
+  - 2 times: Appropriate for primary keywords (relevance 9-10)
+  - 3 times maximum: Only for the single most important keyword
+- **Naturalness requirement:** Keywords must read naturally within sentences. Never keyword-stuff -- Google Play penalizes unnatural repetition and may reject the listing.
+- **Distribution:** Spread keywords across the entire description. Avoid clustering all keywords in one paragraph.
+
+`Keyword integration guidance is based on relevance analysis and Google Play indexing behavior. [ESTIMATED]`
+
+---
+
+## Prioritized Focus Keywords
+
+This section applies to BOTH platforms. It synthesizes the keyword analysis into a clear "here are your top keywords" summary, combining relevance scoring with volume/popularity and intent signals.
+
+### Selection Criteria
+
+Combine relevance score with available data to produce a priority ranking:
+
+1. **Primary sort:** Relevance score (highest first)
+2. **Secondary sort (when user provided volume [USER-PROVIDED]):** Volume (higher first within the same relevance tier)
+3. **Secondary sort (when popularity tiers [ESTIMATED] available, no user volume):** Popularity tier (High > Medium > Low > Unknown within the same relevance tier)
+4. **Tiebreaker:** Intent category priority -- Feature-Seeking and Problem-Solving keywords rank above Category and Comparison keywords at the same relevance and volume/popularity level. Rationale: Feature-Seeking and Problem-Solving keywords signal higher conversion intent (the user wants what the app offers or is actively seeking a solution).
+
+### Top 10-15 Focus Keywords
+
+Present the prioritized list as a table. Select 10-15 keywords. If the total keyword list has fewer than 15 high-quality candidates (relevance 6+), include fewer rather than padding with weak keywords.
+
+| Rank | Keyword | Relevance | {Volume [USER-PROVIDED] or Popularity [ESTIMATED]} | Intent | Why Focus |
+|------|---------|-----------|-----------------------------------------------------|--------|-----------|
+| 1 | {keyword} | {X}/10 | {value} | {intent category} | {One sentence: why this keyword deserves focus -- combines relevance reasoning with competitive/volume signal} |
+| 2 | {keyword} | {X}/10 | {value} | {intent category} | {explanation} |
+| ... | ... | ... | ... | ... | ... |
+
+**Column notes:**
+- The fourth column header adapts based on available data: show "Volume [USER-PROVIDED]" if the user provided volume scores, otherwise show "Popularity [ESTIMATED]" if popularity tiers were generated, otherwise omit the column.
+- Intent category values come from the Intent Grouping section (Navigational, Feature-Seeking, Problem-Solving, Comparison, Category).
+
+### Strategic Summary
+
+After the table, provide a 2-3 sentence strategic overview covering:
+
+1. **Intent balance:** Which intent categories dominate the focus list and whether this is ideal for the app's growth stage.
+2. **Competitive positioning:** Whether the list skews toward competitive keywords (high-volume/high-relevance) or niche keywords (lower-volume but high-relevance and lower competition).
+3. **One actionable recommendation:** A specific next step for keyword strategy refinement (e.g., "Add more problem-solving terms to capture users searching for solutions" or "Consider targeting lower-competition long-tail variants of your top 3 keywords").
+
+---
+
 ## Analysis Summary
 
 Concise summary of the keyword research results, following the pattern established in `/aso:audit`.
@@ -372,7 +531,7 @@ List the top 5 keywords by relevance score. When user-provided volume data is av
 
 ### Next Steps
 
-- "To generate platform-specific output (iOS keyword field string or Google Play integration guidance), run `/aso:keywords` again with `--output` flag (Phase 7)."
+- "Platform-specific output (iOS keyword field string or Google Play integration guidance) is included above."
 - "To optimize your metadata using these keywords, run `/aso:optimize`."
 - "To audit your current store listing against these keywords, run `/aso:audit`."
 
