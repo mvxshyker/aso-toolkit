@@ -133,7 +133,10 @@ Plans:
   4. iOS keyword field composition maximizes unique keyword coverage within 100 chars following all formatting rules (comma-separated, no spaces, no duplication, singular forms preferred)
   5. Description optimization produces Google Play keyword-integrated copy and iOS conversion-focused copy, each appropriate to the platform
   6. All generated output is validated against platform character limits and displays remaining character count
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 08-01-PLAN.md — Create /aso:optimize command with input resolution, title optimization, and subtitle/short desc optimization
+- [ ] 08-02-PLAN.md — Add iOS keyword field composition, description optimization, character validation summary, and analysis summary
 
 ### Phase 9: Optimization Validation and Output
 **Goal**: Users can see exactly what changed, verify keyword coverage, and get a persistent report
@@ -171,6 +174,6 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 | 5. Audit Output and Reporting | 0/1 | Planning complete | - |
 | 6. Keyword Research Core | 0/2 | Planning complete | - |
 | 7. Keyword Platform Output | 0/2 | Planning complete | - |
-| 8. Metadata Optimization Core | 0/0 | Not started | - |
+| 8. Metadata Optimization Core | 0/2 | Planning complete | - |
 | 9. Optimization Validation and Output | 0/0 | Not started | - |
 | 10. Distribution and Help | 0/0 | Not started | - |
