@@ -27,8 +27,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **AUDT-03**: Subtitle (iOS) / Short Description (Google Play) analysis checks character usage, keyword coverage, value proposition clarity
 - [x] **AUDT-04**: Description analysis evaluates conversion quality (iOS, not indexed) or keyword density and natural flow (Google Play, indexed)
 - [x] **AUDT-05**: iOS keyword field guidance advises on 100-char field strategy: comma-separated, no spaces, no duplication with title/subtitle, maximize unique coverage
-- [ ] **AUDT-06**: Rating/review summary shows score, count, distribution shape, and category comparison
-- [ ] **AUDT-07**: Weighted scoring system outputs 0-100 numeric score with letter grade and category breakdowns (Metadata, Visibility, Conversion)
+- [x] **AUDT-06**: Rating/review summary shows score, count, distribution shape, and category comparison
+- [x] **AUDT-07**: Weighted scoring system outputs 0-100 numeric score with letter grade and category breakdowns (Metadata, Visibility, Conversion)
 - [ ] **AUDT-08**: Light competitor context shows top 3-5 competitors' titles, subtitles, and ratings via web search
 - [ ] **AUDT-09**: Every finding pairs with a specific, actionable recommendation prioritized by impact (Critical/High/Medium/Low)
 - [ ] **AUDT-10**: Report written as .md file to working directory AND summary printed inline
@@ -128,8 +128,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUDT-03 | Phase 3 | Complete |
 | AUDT-04 | Phase 3 | Complete |
 | AUDT-05 | Phase 3 | Complete |
-| AUDT-06 | Phase 4 | Pending |
-| AUDT-07 | Phase 4 | Pending |
+| AUDT-06 | Phase 4 | Complete |
+| AUDT-07 | Phase 4 | Complete |
 | AUDT-08 | Phase 4 | Pending |
 | AUDT-09 | Phase 4 | Pending |
 | AUDT-10 | Phase 5 | Pending |

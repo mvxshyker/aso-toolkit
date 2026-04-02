@@ -79,7 +79,7 @@ Plans:
   4. Every audit finding is paired with a specific, actionable recommendation labeled by impact level (Critical, High, Medium, Low)
 **Plans:** 2 plans
 Plans:
-- [ ] 04-01-PLAN.md — Add Rating/Review Summary and Weighted Scoring System sections to audit command
+- [x] 04-01-PLAN.md — Add Rating/Review Summary and Weighted Scoring System sections to audit command
 - [ ] 04-02-PLAN.md — Add Competitive Context (aso-analyst subagent) and Prioritized Recommendations sections, update Analysis Summary
 
 ### Phase 5: Audit Output and Reporting
