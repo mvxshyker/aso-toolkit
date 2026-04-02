@@ -40,9 +40,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **KWRD-03**: Each keyword scored for relevance (semantic fit to app) with explanation — Claude's genuine analytical strength
 - [x] **KWRD-04**: If user provides volume/difficulty data, preserve and display it. If not, use Apple autocomplete presence as a directional popularity signal (no fake numbers)
 - [x] **KWRD-05**: Keywords grouped by intent: navigational, feature-seeking, problem-solving, comparison, category
-- [ ] **KWRD-06**: iOS output includes ready-to-paste keyword field string (100 chars, comma-separated, optimized)
-- [ ] **KWRD-07**: Google Play output includes keyword integration guidance for description writing
-- [ ] **KWRD-08**: Prioritized final list with top 10-15 focus keywords clearly highlighted, combining user-provided scores + relevance analysis
+- [x] **KWRD-06**: iOS output includes ready-to-paste keyword field string (100 chars, comma-separated, optimized)
+- [x] **KWRD-07**: Google Play output includes keyword integration guidance for description writing
+- [x] **KWRD-08**: Prioritized final list with top 10-15 focus keywords clearly highlighted, combining user-provided scores + relevance analysis
 - [ ] **KWRD-09**: Report written as .md file to working directory AND summary printed inline
 
 ### Metadata Optimization
@@ -138,9 +138,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | KWRD-03 | Phase 6 | Complete |
 | KWRD-04 | Phase 6 | Complete |
 | KWRD-05 | Phase 6 | Complete |
-| KWRD-06 | Phase 7 | Pending |
-| KWRD-07 | Phase 7 | Pending |
-| KWRD-08 | Phase 7 | Pending |
+| KWRD-06 | Phase 7 | Complete |
+| KWRD-07 | Phase 7 | Complete |
+| KWRD-08 | Phase 7 | Complete |
 | KWRD-09 | Phase 7 | Pending |
 | OPTM-01 | Phase 8 | Pending |
 | OPTM-02 | Phase 8 | Pending |
