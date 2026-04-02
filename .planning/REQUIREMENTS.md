@@ -50,9 +50,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **OPTM-01**: User can run /aso:optimize with current metadata + target keywords and get optimized metadata
 - [x] **OPTM-02**: Title optimization generates 3-5 variants respecting platform char limits with keyword-first placement
 - [x] **OPTM-03**: Subtitle (iOS) / Short Description (Google Play) optimization generates 3-5 variants, no keyword duplication with title on iOS
-- [ ] **OPTM-04**: iOS keyword field composition maximizes unique keyword coverage within 100 chars following all rules (comma-separated, no spaces, no duplication, prefer singular forms)
-- [ ] **OPTM-05**: Description optimization generates Google Play keyword-integrated copy and iOS conversion-focused copy
-- [ ] **OPTM-06**: All output validated against platform character limits with remaining-count display
+- [x] **OPTM-04**: iOS keyword field composition maximizes unique keyword coverage within 100 chars following all rules (comma-separated, no spaces, no duplication, prefer singular forms)
+- [x] **OPTM-05**: Description optimization generates Google Play keyword-integrated copy and iOS conversion-focused copy
+- [x] **OPTM-06**: All output validated against platform character limits with remaining-count display
 - [ ] **OPTM-07**: Before/after comparison shows current vs proposed side-by-side with annotated change rationale
 - [ ] **OPTM-08**: Keyword coverage verification confirms all priority keywords are represented across metadata fields
 - [ ] **OPTM-09**: Report written as .md file to working directory AND summary printed inline
@@ -145,9 +145,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OPTM-01 | Phase 8 | Complete |
 | OPTM-02 | Phase 8 | Complete |
 | OPTM-03 | Phase 8 | Complete |
-| OPTM-04 | Phase 8 | Pending |
-| OPTM-05 | Phase 8 | Pending |
-| OPTM-06 | Phase 8 | Pending |
+| OPTM-04 | Phase 8 | Complete |
+| OPTM-05 | Phase 8 | Complete |
+| OPTM-06 | Phase 8 | Complete |
 | OPTM-07 | Phase 9 | Pending |
 | OPTM-08 | Phase 9 | Pending |
 | OPTM-09 | Phase 9 | Pending |
