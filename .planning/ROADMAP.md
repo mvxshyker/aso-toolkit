@@ -106,7 +106,7 @@ Plans:
 **Plans:** 2 plans
 Plans:
 - [x] 06-01-PLAN.md — Create /aso:keywords command with input resolution, keyword expansion, and relevance scoring
-- [ ] 06-02-PLAN.md — Add user-data handling, popularity signals, intent grouping, and analysis summary
+- [x] 06-02-PLAN.md — Add user-data handling, popularity signals, intent grouping, and analysis summary
 
 ### Phase 7: Keyword Platform Output
 **Goal**: Keyword research produces platform-specific, ready-to-use output and a clear prioritized list

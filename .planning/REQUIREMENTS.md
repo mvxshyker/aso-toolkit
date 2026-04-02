@@ -38,8 +38,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **KWRD-01**: User can run /aso:keywords with a user-provided keyword list (pasted, file path, or CSV) containing keywords and optionally volume/difficulty scores from their paid tools
 - [x] **KWRD-02**: Keyword expansion discovers additional candidates via Apple search autocomplete and Claude's semantic reasoning (related terms, synonyms, long-tail variations)
 - [x] **KWRD-03**: Each keyword scored for relevance (semantic fit to app) with explanation — Claude's genuine analytical strength
-- [ ] **KWRD-04**: If user provides volume/difficulty data, preserve and display it. If not, use Apple autocomplete presence as a directional popularity signal (no fake numbers)
-- [ ] **KWRD-05**: Keywords grouped by intent: navigational, feature-seeking, problem-solving, comparison, category
+- [x] **KWRD-04**: If user provides volume/difficulty data, preserve and display it. If not, use Apple autocomplete presence as a directional popularity signal (no fake numbers)
+- [x] **KWRD-05**: Keywords grouped by intent: navigational, feature-seeking, problem-solving, comparison, category
 - [ ] **KWRD-06**: iOS output includes ready-to-paste keyword field string (100 chars, comma-separated, optimized)
 - [ ] **KWRD-07**: Google Play output includes keyword integration guidance for description writing
 - [ ] **KWRD-08**: Prioritized final list with top 10-15 focus keywords clearly highlighted, combining user-provided scores + relevance analysis
@@ -136,8 +136,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | KWRD-01 | Phase 6 | Complete |
 | KWRD-02 | Phase 6 | Complete |
 | KWRD-03 | Phase 6 | Complete |
-| KWRD-04 | Phase 6 | Pending |
-| KWRD-05 | Phase 6 | Pending |
+| KWRD-04 | Phase 6 | Complete |
+| KWRD-05 | Phase 6 | Complete |
 | KWRD-06 | Phase 7 | Pending |
 | KWRD-07 | Phase 7 | Pending |
 | KWRD-08 | Phase 7 | Pending |
