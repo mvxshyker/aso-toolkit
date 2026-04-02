@@ -66,6 +66,8 @@ Any developer can audit and optimize their app store listing in one command, get
 | Auto-detect platform from URL | Less friction than requiring --platform flag | — Pending |
 | Auto-register in settings.json | Users shouldn't have to manually configure paths | — Pending |
 | Both file + inline output | File for reference, inline for quick review | — Pending |
+| App context via .aso-context.json | /aso:app-new stores app metadata locally, all commands read it automatically. /aso:app-clear resets. | — Pending |
+| No settings.json modification | Rules/commands auto-discovered from ~/.claude/ directories per research | ✓ Good |
 
 ## Evolution
 

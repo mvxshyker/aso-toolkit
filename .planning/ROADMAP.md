@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Domain Knowledge Foundation** - Rules file encoding ASO domain knowledge, platform detection, data labeling conventions
 - [ ] **Phase 2: Subagent Infrastructure** - aso-analyst agent for parallel competitive web research
-- [ ] **Phase 3: Audit Metadata Analysis** - Core audit command with title, subtitle, description, and keyword field analysis
+- [ ] **Phase 3: Audit Metadata Analysis + App Context** - App context commands (/aso:app-new, /aso:app-clear) plus core audit with title, subtitle, description, and keyword field analysis
 - [ ] **Phase 4: Audit Scoring and Competitive Context** - Weighted scoring system, competitor comparison, prioritized recommendations
 - [ ] **Phase 5: Audit Output and Reporting** - Structured report generation with file output and inline summary
 - [ ] **Phase 6: Keyword Research Core** - Keyword input, expansion via autocomplete, relevance scoring, intent grouping
@@ -48,16 +48,19 @@ Plans:
   3. The agent file references the shared rules file for platform detection and output conventions
 **Plans**: TBD
 
-### Phase 3: Audit Metadata Analysis
-**Goal**: Users can run /aso:audit and get detailed, platform-aware analysis of every text metadata field on their store listing
+### Phase 3: Audit Metadata Analysis + App Context
+**Goal**: Users can attach an app via /aso:app-new (stores context in .aso-context.json), then run /aso:audit for detailed, platform-aware analysis of every text metadata field
 **Depends on**: Phase 1
-**Requirements**: AUDT-01, AUDT-02, AUDT-03, AUDT-04, AUDT-05
+**Requirements**: ACTX-01, ACTX-02, ACTX-03, AUDT-01, AUDT-02, AUDT-03, AUDT-04, AUDT-05
 **Success Criteria** (what must be TRUE):
-  1. User can invoke /aso:audit with a store URL or app name and the command begins a structured audit workflow
-  2. Title analysis reports character count vs platform limit, keyword presence and positioning, and brand-vs-keyword balance
-  3. Subtitle (iOS) or short description (Google Play) analysis reports character usage, keyword coverage, and value proposition clarity
-  4. Description analysis applies the correct platform strategy: conversion quality for iOS (not indexed), keyword density and flow for Google Play (indexed)
-  5. For iOS apps, keyword field guidance covers 100-char strategy with formatting rules (comma-separated, no spaces, no duplication with title/subtitle)
+  1. /aso:app-new accepts a store URL, web-searches the listing, pulls metadata, and saves to .aso-context.json in working directory
+  2. /aso:app-clear deletes .aso-context.json
+  3. /aso:audit reads .aso-context.json automatically when present (no URL needed); still accepts explicit URL as override
+  4. User can invoke /aso:audit with a store URL or app name and the command begins a structured audit workflow
+  5. Title analysis reports character count vs platform limit, keyword presence and positioning, and brand-vs-keyword balance
+  6. Subtitle (iOS) or short description (Google Play) analysis reports character usage, keyword coverage, and value proposition clarity
+  7. Description analysis applies the correct platform strategy: conversion quality for iOS (not indexed), keyword density and flow for Google Play (indexed)
+  8. For iOS apps, keyword field guidance covers 100-char strategy with formatting rules (comma-separated, no spaces, no duplication with title/subtitle)
 **Plans**: TBD
 
 ### Phase 4: Audit Scoring and Competitive Context

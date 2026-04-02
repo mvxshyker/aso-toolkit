@@ -14,6 +14,12 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FOUN-03**: All difficulty, popularity, and volume estimates are clearly labeled ESTIMATED — observed store data labeled OBSERVED
 - [ ] **FOUN-04**: aso-analyst subagent can be spawned by any skill for parallel web search and competitor data extraction
 
+### App Context
+
+- [ ] **ACTX-01**: /aso:app-new accepts a store URL or app name, web-searches the listing, pulls current metadata (title, subtitle, description, rating, category), and saves context to .aso-context.json in the working directory
+- [ ] **ACTX-02**: /aso:app-clear deletes .aso-context.json, wiping the active app context
+- [ ] **ACTX-03**: All /aso:* commands (audit, keywords, optimize) read .aso-context.json automatically — no repeated URL/app inputs needed when context exists
+
 ### Store Listing Audit
 
 - [ ] **AUDT-01**: User can run /aso:audit with a store URL or app name and get a structured audit report
@@ -114,6 +120,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUN-02 | Phase 1 | Complete |
 | FOUN-03 | Phase 1 | Complete |
 | FOUN-04 | Phase 2 | Pending |
+| ACTX-01 | Phase 3 | Pending |
+| ACTX-02 | Phase 3 | Pending |
+| ACTX-03 | Phase 3 | Pending |
 | AUDT-01 | Phase 3 | Pending |
 | AUDT-02 | Phase 3 | Pending |
 | AUDT-03 | Phase 3 | Pending |
@@ -147,10 +156,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DIST-03 | Phase 10 | Pending |
 
 **Coverage:**
-- v1 requirements: 35 total
-- Mapped to phases: 35
+- v1 requirements: 38 total
+- Mapped to phases: 38
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-02*
-*Last updated: 2026-04-02 after roadmap creation*
+*Last updated: 2026-04-02 after adding app context requirements*
