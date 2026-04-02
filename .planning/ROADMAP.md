@@ -65,7 +65,7 @@ Plans:
   8. For iOS apps, keyword field guidance covers 100-char strategy with formatting rules (comma-separated, no spaces, no duplication with title/subtitle)
 **Plans:** 2 plans
 Plans:
-- [ ] 03-01-PLAN.md — Create app context commands (/aso:app-new and /aso:app-clear) with .aso-context.json schema and platform detection
+- [x] 03-01-PLAN.md — Create app context commands (/aso:app-new and /aso:app-clear) with .aso-context.json schema and platform detection
 - [ ] 03-02-PLAN.md — Create /aso:audit command with metadata analysis (title, subtitle, description, keyword field guidance)
 
 ### Phase 4: Audit Scoring and Competitive Context

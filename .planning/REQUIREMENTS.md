@@ -16,9 +16,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### App Context
 
-- [ ] **ACTX-01**: /aso:app-new accepts a store URL or app name, web-searches the listing, pulls current metadata (title, subtitle, description, rating, category), and saves context to .aso-context.json in the working directory
-- [ ] **ACTX-02**: /aso:app-clear deletes .aso-context.json, wiping the active app context
-- [ ] **ACTX-03**: All /aso:* commands (audit, keywords, optimize) read .aso-context.json automatically — no repeated URL/app inputs needed when context exists
+- [x] **ACTX-01**: /aso:app-new accepts a store URL or app name, web-searches the listing, pulls current metadata (title, subtitle, description, rating, category), and saves context to .aso-context.json in the working directory
+- [x] **ACTX-02**: /aso:app-clear deletes .aso-context.json, wiping the active app context
+- [x] **ACTX-03**: All /aso:* commands (audit, keywords, optimize) read .aso-context.json automatically — no repeated URL/app inputs needed when context exists
 
 ### Store Listing Audit
 
@@ -120,9 +120,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUN-02 | Phase 1 | Complete |
 | FOUN-03 | Phase 1 | Complete |
 | FOUN-04 | Phase 2 | Complete |
-| ACTX-01 | Phase 3 | Pending |
-| ACTX-02 | Phase 3 | Pending |
-| ACTX-03 | Phase 3 | Pending |
+| ACTX-01 | Phase 3 | Complete |
+| ACTX-02 | Phase 3 | Complete |
+| ACTX-03 | Phase 3 | Complete |
 | AUDT-01 | Phase 3 | Pending |
 | AUDT-02 | Phase 3 | Pending |
 | AUDT-03 | Phase 3 | Pending |
