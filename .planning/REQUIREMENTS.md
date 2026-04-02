@@ -9,9 +9,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUN-01**: Rules file encodes ASO domain knowledge: character limits, platform differences, scoring rubrics, ranking factor weights, best practices
-- [ ] **FOUN-02**: Platform auto-detection infers iOS vs Android from URL format (apps.apple.com vs play.google.com) or app ID format (numeric vs bundle ID)
-- [ ] **FOUN-03**: All difficulty, popularity, and volume estimates are clearly labeled ESTIMATED — observed store data labeled OBSERVED
+- [x] **FOUN-01**: Rules file encodes ASO domain knowledge: character limits, platform differences, scoring rubrics, ranking factor weights, best practices
+- [x] **FOUN-02**: Platform auto-detection infers iOS vs Android from URL format (apps.apple.com vs play.google.com) or app ID format (numeric vs bundle ID)
+- [x] **FOUN-03**: All difficulty, popularity, and volume estimates are clearly labeled ESTIMATED — observed store data labeled OBSERVED
 - [ ] **FOUN-04**: aso-analyst subagent can be spawned by any skill for parallel web search and competitor data extraction
 
 ### Store Listing Audit
@@ -110,9 +110,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUN-01 | Phase 1 | Pending |
-| FOUN-02 | Phase 1 | Pending |
-| FOUN-03 | Phase 1 | Pending |
+| FOUN-01 | Phase 1 | Complete |
+| FOUN-02 | Phase 1 | Complete |
+| FOUN-03 | Phase 1 | Complete |
 | FOUN-04 | Phase 2 | Pending |
 | AUDT-01 | Phase 3 | Pending |
 | AUDT-02 | Phase 3 | Pending |
