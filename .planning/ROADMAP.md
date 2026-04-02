@@ -117,7 +117,10 @@ Plans:
   2. For Google Play, the output includes keyword integration guidance explaining how to weave priority keywords into description copy
   3. A prioritized final list highlights the top 10-15 focus keywords, combining user-provided scores with relevance analysis
   4. The keyword report is written as a .md file to the working directory and a summary is printed inline
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 07-01-PLAN.md — Add iOS keyword field string, Google Play integration guidance, and prioritized focus keywords to /aso:keywords
+- [ ] 07-02-PLAN.md — Add report file output and update Analysis Summary with saved-report references
 
 ### Phase 8: Metadata Optimization Core
 **Goal**: Users can get optimized metadata variants for every text field, respecting platform constraints
@@ -167,7 +170,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 | 4. Audit Scoring and Competitive Context | 0/2 | Planning complete | - |
 | 5. Audit Output and Reporting | 0/1 | Planning complete | - |
 | 6. Keyword Research Core | 0/2 | Planning complete | - |
-| 7. Keyword Platform Output | 0/0 | Not started | - |
+| 7. Keyword Platform Output | 0/2 | Planning complete | - |
 | 8. Metadata Optimization Core | 0/0 | Not started | - |
 | 9. Optimization Validation and Output | 0/0 | Not started | - |
 | 10. Distribution and Help | 0/0 | Not started | - |
