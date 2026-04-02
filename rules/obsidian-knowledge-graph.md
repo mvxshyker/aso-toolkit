@@ -28,9 +28,8 @@ _Router → Workflows → _IP Hub → IP Guidelines → Activity Rules → Scope
 ```
 
 - **Go as deep as context requires.** If the request names a specific game, traverse to IP Hub and beyond. If it's generic (no game specified), stop at the workflow level. The workflow file alone is sufficient for generic work.
-- **Never skip levels.** When traversing, follow each level in order. Router does not link to leaf nodes. Children do not link up to workflows.
-- **Children link only to their parent.** A child file says "Child of [[Parent]]" — nothing else.
-- **Parents link only to their children.** Via an action/scope table.
+- **Never skip levels.** When traversing, follow each level in order. Router does not link to leaf nodes.
+- **Bidirectional linking.** Every file links both up and down. Children have `Parent: [[Parent]]` at the top. Parents have tables linking to children. This enables navigation in both directions and keeps the Obsidian graph connected.
 - **No cross-links between branches.** Marvel Copy Rules does not link to Monopoly Copy Rules.
 
 ### Link Syntax
