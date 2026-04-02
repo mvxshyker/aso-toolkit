@@ -48,7 +48,7 @@ Plans:
   3. The agent file references the shared rules file for platform detection and output conventions
 **Plans:** 1 plan
 Plans:
-- [ ] 02-01-PLAN.md — Create aso-analyst subagent with competitor research strategy, input/output contracts, and data integrity guardrails
+- [x] 02-01-PLAN.md — Create aso-analyst subagent with competitor research strategy, input/output contracts, and data integrity guardrails
 
 ### Phase 3: Audit Metadata Analysis + App Context
 **Goal**: Users can attach an app via /aso:app-new (stores context in .aso-context.json), then run /aso:audit for detailed, platform-aware analysis of every text metadata field
