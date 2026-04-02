@@ -14,10 +14,10 @@ Read the router at `$ASO_VAULT/_Router.md`. Follow the `copy` route.
 
 1. Read the workflow file linked in the router (`Store Event Copy Guidelines`).
 2. The workflow links to `_IP Hub`. Read it.
-3. Match the game from the user's brief to a row in the IP Hub. Read that game's IP Guidelines hub.
-4. The IP hub has an action table. Read the `copy` child file.
+3. Match the game from the user's brief to a row in the IP Hub. If the game has no IP Hub entry, skip to the next step — use only the general copy rules.
+4. If an IP hub exists for this game, read it and find the `copy` child file in its action table.
 
-You now have: general copy rules + client-specific copy rules. Apply both.
+You now have: general copy rules + client-specific copy/IP rules (if they exist). Apply all available rules.
 
 ## Step 2: Validate the Brief
 
@@ -27,7 +27,7 @@ Check against the client's "Only Ask If Missing" section. Apply all defaults the
 
 ## Step 3: Research (If Required by IP Rules)
 
-If the client's IP rules require real-world lore or reference material, launch the `aso-ip-researcher` agent in the background with:
+If the game has IP rules and those rules require real-world lore or reference material, launch the `aso-ip-researcher` agent in the background with:
 - **Subject**: the character, theme, or setting from the brief
 - **Game**: the matched game name
 - **Context**: any cultural moment or event context from the brief

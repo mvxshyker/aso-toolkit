@@ -14,10 +14,10 @@ Read the router at `$ASO_VAULT/_Router.md`. Follow the `nominate` route.
 
 1. Read the workflow file linked in the router (`Apple Event Nomination Guidelines`).
 2. The workflow links to `_IP Hub`. Read it.
-3. Match the game from the user's brief to a row in the IP Hub. Read that game's IP Guidelines hub.
-4. The IP hub has an action table. Read the `nominate` child file.
+3. Match the game from the user's brief to a row in the IP Hub. If the game has no IP Hub entry, skip to the next step — use only the general nomination rules.
+4. If an IP hub exists for this game, read it and find the `nominate` child file in its action table.
 
-You now have: general nomination rules + client-specific nomination rules. Apply both.
+You now have: general nomination rules + client-specific nomination/IP rules (if they exist). Apply all available rules.
 
 ## Step 2: Validate the Brief
 
