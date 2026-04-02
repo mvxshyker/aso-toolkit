@@ -103,7 +103,10 @@ Plans:
   3. Each keyword receives a relevance score with a written explanation of its semantic fit to the app
   4. User-provided volume/difficulty data is preserved and displayed alongside Claude's analysis; when absent, Apple autocomplete presence serves as a directional popularity signal without fabricated numbers
   5. Keywords are grouped by intent category: navigational, feature-seeking, problem-solving, comparison, category
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 06-01-PLAN.md — Create /aso:keywords command with input resolution, keyword expansion, and relevance scoring
+- [ ] 06-02-PLAN.md — Add user-data handling, popularity signals, intent grouping, and analysis summary
 
 ### Phase 7: Keyword Platform Output
 **Goal**: Keyword research produces platform-specific, ready-to-use output and a clear prioritized list
@@ -163,7 +166,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 | 3. Audit Metadata Analysis | 0/2 | Planning complete | - |
 | 4. Audit Scoring and Competitive Context | 0/2 | Planning complete | - |
 | 5. Audit Output and Reporting | 0/1 | Planning complete | - |
-| 6. Keyword Research Core | 0/0 | Not started | - |
+| 6. Keyword Research Core | 0/2 | Planning complete | - |
 | 7. Keyword Platform Output | 0/0 | Not started | - |
 | 8. Metadata Optimization Core | 0/0 | Not started | - |
 | 9. Optimization Validation and Output | 0/0 | Not started | - |
