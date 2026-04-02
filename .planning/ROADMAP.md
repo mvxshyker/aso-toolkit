@@ -63,7 +63,10 @@ Plans:
   6. Subtitle (iOS) or short description (Google Play) analysis reports character usage, keyword coverage, and value proposition clarity
   7. Description analysis applies the correct platform strategy: conversion quality for iOS (not indexed), keyword density and flow for Google Play (indexed)
   8. For iOS apps, keyword field guidance covers 100-char strategy with formatting rules (comma-separated, no spaces, no duplication with title/subtitle)
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 03-01-PLAN.md — Create app context commands (/aso:app-new and /aso:app-clear) with .aso-context.json schema and platform detection
+- [ ] 03-02-PLAN.md — Create /aso:audit command with metadata analysis (title, subtitle, description, keyword field guidance)
 
 ### Phase 4: Audit Scoring and Competitive Context
 **Goal**: The audit produces a quantified score with competitive context so users know exactly where they stand and what matters most
@@ -152,7 +155,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 |-------|----------------|--------|-----------|
 | 1. Domain Knowledge Foundation | 0/1 | Planning complete | - |
 | 2. Subagent Infrastructure | 0/1 | Planning complete | - |
-| 3. Audit Metadata Analysis | 0/0 | Not started | - |
+| 3. Audit Metadata Analysis | 0/2 | Planning complete | - |
 | 4. Audit Scoring and Competitive Context | 0/0 | Not started | - |
 | 5. Audit Output and Reporting | 0/0 | Not started | - |
 | 6. Keyword Research Core | 0/0 | Not started | - |
