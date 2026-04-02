@@ -24,6 +24,13 @@ All data in reports must carry one of two labels:
 
 Never present ESTIMATED data without the label. Never omit the label.
 
+**Labeling enforcement rules:**
+- OBSERVED data must cite its source (URL, API endpoint, or store page)
+- ESTIMATED data must explain the reasoning basis (e.g., "ESTIMATED based on keyword presence in title and subtitle")
+- When mixing OBSERVED and ESTIMATED data in a single table, mark each row individually
+- NEVER present fabricated metrics as OBSERVED -- this violates the Data Integrity directive above
+- If unsure whether data is OBSERVED or ESTIMATED, classify it as ESTIMATED (safer default)
+
 ## Platform Character Limits
 
 ### iOS (App Store Connect)
@@ -71,7 +78,7 @@ Violation risk: Google may reject the update or suspend the listing.
 
 ## Platform Detection
 
-Given user input, detect the platform using this priority order:
+Given user input, detect the platform using this priority order. Check URL patterns first, then numeric or bundle ID patterns, then handle ambiguous cases.
 
 ### URL Patterns
 
@@ -86,15 +93,19 @@ Given user input, detect the platform using this priority order:
 
 | Pattern | Platform | Example |
 |---------|----------|---------|
-| Pure digits (typically 9-10 chars) | iOS | 284882215 |
-| Reverse-domain notation (contains dots) | Android | com.facebook.Facebook |
+| Pure numeric ID (typically 9-10 digits) | iOS | 284882215 |
+| Reverse-domain bundle ID (contains dots) | Android | com.facebook.Facebook |
+
+A numeric-only string strongly implies iOS (Apple's app ID format). A reverse-domain bundle identifier (e.g., `com.example.app`) strongly implies Android (Google Play package name format).
 
 ### Ambiguous Input
 
 | Input Type | Action |
 |------------|--------|
-| App name (plain text) | Ask user to specify platform, or search both stores |
+| App name (plain text) | Ask user to specify platform, or search both apps.apple.com and play.google.com |
 | Unknown URL format | Ask user to clarify |
+
+When platform cannot be determined from the URL or ID pattern, default to searching both stores rather than guessing. Always confirm platform with the user before generating platform-specific recommendations.
 
 ## ASO Scoring Rubric
 
