@@ -476,6 +476,63 @@ Draw from the agent's "Missing opportunities" observation to identify positionin
 
 ---
 
+## Prioritized Recommendations
+
+> This section synthesizes every finding from the audit into a prioritized action list. Each recommendation is specific enough for the user to implement without further research.
+
+### Impact Level Definitions
+
+| Impact | Definition | Action Timeline |
+|--------|------------|-----------------|
+| Critical | Violates store policy or causes listing rejection/suspension | Fix immediately |
+| High | Directly impacts search ranking or conversion rate | Fix this week |
+| Medium | Missed optimization opportunity with moderate impact | Fix this month |
+| Low | Minor improvement, nice-to-have | Backlog |
+
+### Recommendation Synthesis
+
+Review every finding from the following analysis sections:
+- **Title Analysis** -- character usage, keyword presence, brand/keyword balance, readability
+- **Subtitle / Short Description Analysis** -- character usage, keyword coverage, value proposition
+- **Description Analysis** -- first 3 lines, readability/scannability, keyword density (Android), CTA, social proof
+- **Keyword Field Guidance** (iOS only) -- formatting, coverage strategy, opportunity gaps
+- **Rating and Review Summary** -- rating level, review count, category comparison
+- **ASO Score** -- category sub-scores (Metadata, Visibility, Conversion) identifying weakest areas
+- **Competitive Context** -- positioning gaps, differentiation opportunities, competitive keyword patterns
+
+For **each finding that identifies an issue, gap, or opportunity**, create a recommendation entry.
+
+### Recommendations (ordered by impact)
+
+Sort all recommendations by impact level: Critical first, then High, then Medium, then Low. Within the same impact level, prioritize in this order: Metadata findings, then Visibility findings, then Conversion findings (matching the scoring rubric weight order from `rules/aso-domain.md`).
+
+Format each recommendation as:
+
+**{N}. [{CRITICAL/HIGH/MEDIUM/LOW}] {Brief title}**
+- **Finding:** {What was observed or assessed, and which section it came from}
+- **Action:** {Specific, actionable instruction -- what exactly to change and how}
+- **Expected effect:** {What improvement the user should expect from this change}
+
+### Actionability Standard
+
+Every recommendation must be specific enough that the user can implement it without further research.
+
+**Good examples:**
+- "Add your primary keyword 'meditation' to the first position in your title. Current title 'Calm - Sleep & Relax' could become 'Calm - Meditation & Sleep' to front-load the highest-value keyword."
+- "Your review count (47) is well below the category average. Implement an in-app review prompt using StoreKit (iOS) or Google Play In-App Review API after a positive user action (e.g., completing a session)."
+
+**Bad examples (do NOT produce these):**
+- "Improve your title" -- too vague, no specific action
+- "Get more reviews" -- not actionable, no implementation path
+
+### Minimum Recommendations
+
+Every audit must produce at least 3 recommendations. If the listing is exceptionally well-optimized, identify refinement opportunities at the Medium or Low level. There is always room for improvement.
+
+`All recommendations are analytical assessments based on audit findings and ASO best practices. [ESTIMATED]`
+
+---
+
 ## Analysis Summary
 
 After completing all analysis sections above, provide a concise summary.
@@ -487,14 +544,19 @@ After completing all analysis sections above, provide a concise summary.
 | Title | {n} chars | {limit} chars | {percent}% |
 | Subtitle / Short Desc | {n} chars | {limit} chars | {percent}% |
 | Description | {n} chars | 4,000 chars | {percent}% |
+| **ASO Score** | {score}/100 | {grade} | Metadata {X}/50, Visibility {X}/25, Conversion {X}/25 |
 
 ### Top Findings
 
-List the 3 most impactful findings from the analysis, ordered by priority. Each finding should name the field, the issue, and why it matters for ranking or conversion.
+List the top 3 recommendations from the Prioritized Recommendations section above, summarized in one line each with their impact level. Format:
+
+1. **[{IMPACT}]** {One-line summary of recommendation}
+2. **[{IMPACT}]** {One-line summary of recommendation}
+3. **[{IMPACT}]** {One-line summary of recommendation}
 
 ### Next Steps
 
-"For a full report file export, this feature will be available in a future update."
+"For a full report file saved to your working directory, this feature will be available in a future update. To optimize your listing based on these findings, run `/aso:optimize`."
 
 ---
 
