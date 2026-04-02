@@ -4,16 +4,16 @@ Slash commands that route to Obsidian workflows. All knowledge, logic, and routi
 
 ## Architecture
 
-- **Obsidian vault** (`~/Documents/Obsidian Vault/ASO/`): Router, workflows, knowledge, client IP rules, output
+- **Obsidian vault** (`$ASO_VAULT/`): Router, workflows, knowledge, client IP rules, output
 - **This repo**: Slash command skills (thin pointers to Obsidian), scripts, templates
 
-Every `/aso:*` skill reads `~/Documents/Obsidian Vault/ASO/_Router.md` and follows its routing instructions.
+Every `/aso:*` skill reads `$ASO_VAULT/_Router.md` and follows its routing instructions.
 
 ## Repo Structure
 
 ```
 skills/              # Slash command triggers → point to Obsidian router
-  aso-copy/          # /aso:copy → store event & promo copy
+  aso-copy-promo/    # /aso:copy-promo → store event & promo copy
   aso-nominate/      # /aso:nominate → Apple editorial nomination pitch
 scripts/             # Executable code (API calls, data fetching)
 templates/           # Output templates (HTML, formatted reports)
