@@ -46,7 +46,9 @@ Plans:
   1. An agent file exists at the correct path that Claude Code would auto-discover, with appropriate model selection and tool restrictions in frontmatter
   2. The agent accepts an app name/category and returns a structured comparison table of 3-5 competitors (title, subtitle, rating, review count)
   3. The agent file references the shared rules file for platform detection and output conventions
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 02-01-PLAN.md — Create aso-analyst subagent with competitor research strategy, input/output contracts, and data integrity guardrails
 
 ### Phase 3: Audit Metadata Analysis + App Context
 **Goal**: Users can attach an app via /aso:app-new (stores context in .aso-context.json), then run /aso:audit for detailed, platform-aware analysis of every text metadata field
@@ -149,7 +151,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Domain Knowledge Foundation | 0/1 | Planning complete | - |
-| 2. Subagent Infrastructure | 0/0 | Not started | - |
+| 2. Subagent Infrastructure | 0/1 | Planning complete | - |
 | 3. Audit Metadata Analysis | 0/0 | Not started | - |
 | 4. Audit Scoring and Competitive Context | 0/0 | Not started | - |
 | 5. Audit Output and Reporting | 0/0 | Not started | - |
