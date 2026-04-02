@@ -13,7 +13,7 @@ argument-hint: "<store-url-or-app-name>"
 
 You are the ASO Audit command. You perform a comprehensive analysis of an app's store listing metadata, evaluating each text field against platform-specific best practices defined in `rules/aso-domain.md`.
 
-This audit covers metadata analysis: title, subtitle/short description, description text, and keyword field strategy. Scoring, competitive context, and report file output are handled by subsequent commands and will be integrated into this workflow in a future update.
+This audit covers metadata analysis, rating/review context, a weighted ASO score, competitive context, and prioritized recommendations. Report file output will be added in a future update.
 
 Before starting, read `rules/aso-domain.md` to load platform character limits, the OBSERVED/ESTIMATED data labeling convention, keyword field rules, and the scoring rubric reference.
 
@@ -283,6 +283,140 @@ Identify keyword gaps -- terms that are relevant to the app but not present in t
 
 ---
 
+## Rating and Review Summary
+
+> Visibility context: Ratings and reviews are the primary Visibility signal, contributing 15% of the overall ASO score. High ratings improve both search ranking and conversion rate.
+
+### 1. Rating Overview [OBSERVED]
+
+Report the app's current rating and review count:
+
+`{rating}/5.0 stars ({rating_count} ratings)`
+
+Data sources: `.aso-context.json` fields (`rating`, `rating_count`) or the data fetching step (iTunes API `averageUserRating` / `userRatingCount`, or Google Play page scrape).
+
+If rating or rating_count is unavailable (null, missing, or not retrieved):
+`Rating data not available from source. Use App Store Connect or Google Play Console for verified metrics.`
+
+### 2. Distribution Shape [ESTIMATED]
+
+Infer the likely review distribution shape from the aggregate rating score. This is an estimate -- per-star counts are not available from external sources.
+
+| Rating Range | Likely Shape | Interpretation |
+|-------------|--------------|----------------|
+| 4.5 and above | Positive-skewed (majority 5-star) | Healthy distribution -- users are broadly satisfied |
+| 4.0 -- 4.4 | Mixed distribution -- some polarization likely | Investigate negative reviews for recurring themes |
+| 3.5 -- 3.9 | Concerning -- significant negative sentiment | Review quality is a conversion and ranking risk |
+| Below 3.5 | Negative-skewed -- urgent quality/UX issues likely | Immediate action required -- impacts both ranking and conversion |
+
+`Distribution shape is inferred from the aggregate rating, not from per-star breakdown data. [ESTIMATED]`
+
+### 3. Category Comparison [ESTIMATED]
+
+Compare the app's rating against category benchmarks:
+
+- "Most top-performing apps in {category} maintain 4.5+ ratings with 10,000+ reviews" (reference: Ratings & Reviews scoring anchor in `rules/aso-domain.md` -- a 9-10 score requires 4.5+ with 10K+ reviews)
+- If rating is **below 4.0**: Flag as HIGH concern: "Below the 4.0 threshold that significantly impacts both ranking and conversion. The Ratings & Reviews scoring anchor in `rules/aso-domain.md` scores ratings below 3.5 at 0-3 out of 10."
+- If review count is **under 100**: Flag as MEDIUM concern: "Low review count reduces social proof and ranking signal strength. Both platforms use review volume as a quality signal."
+- If rating is **4.5+ with 10,000+ reviews**: Note as strong: "Rating and review volume place this app in the top scoring tier for the Visibility category."
+
+`Category comparison is based on general ASO benchmarks, not category-specific store data. [ESTIMATED]`
+
+### 4. Review Recency [ESTIMATED]
+
+Review recency (how recently users have left reviews) cannot be observed externally without App Store Connect or Google Play Console access.
+
+Both platforms weight recent reviews more heavily than historical ones:
+- **iOS:** Apple uses a rolling window for the displayed rating. Developers can reset their rating with a new version.
+- **Android:** Google Play uses a time-weighted average that prioritizes recent reviews.
+
+Recommend: "Check your analytics dashboard for recent review velocity. A drop in review frequency may indicate declining engagement, while a surge of negative reviews may signal a recent quality regression."
+
+`Review recency data is not available from external sources. [ESTIMATED]`
+
+---
+
+## ASO Score
+
+> This section produces a quantified 0-100 ASO score with letter grade. Score each factor using the anchors defined in the ASO Scoring Rubric section of `rules/aso-domain.md`.
+
+### Scoring Instructions
+
+Score each of the 8 factors on a **0-10 scale** using the scoring anchors in `rules/aso-domain.md`.
+
+**Factors scorable from available data** (use the analysis performed in previous sections):
+- **Title** -- Score based on Title Analysis findings (keyword presence, front-loading, character usage, readability)
+- **Subtitle / Short Desc** -- Score based on Subtitle / Short Description Analysis findings
+- **Keywords / Description** -- Score based on Keyword Field Guidance (iOS) or Description keyword density analysis (Android)
+- **Description Quality** -- Score based on Description Analysis findings (first 3 lines, scannability, CTA, social proof)
+- **Ratings & Reviews** -- Score based on Rating and Review Summary findings (rating value, review count, category comparison)
+
+**Factors NOT scorable from external observation** (assign default score):
+- **Screenshots** -- Default **5/10**. `ESTIMATED -- not assessable from metadata audit alone. Provide screenshots for visual analysis.`
+- **Icon** -- Default **5/10**. `ESTIMATED -- not assessable from metadata audit alone. Provide icon image for visual analysis.`
+- **Ranking Signals** -- Default **5/10**. `ESTIMATED -- not assessable from metadata audit alone. Check App Store Connect or Google Play Console for category ranking data.`
+
+### Score Breakdown
+
+Produce the following table with calculated weighted scores:
+
+| Category | Factor | Score | Weight | Weighted |
+|----------|--------|-------|--------|----------|
+| Metadata | Title | {X}/10 | 20% | {X * 2.0} |
+| Metadata | Subtitle / Short Desc | {X}/10 | 15% | {X * 1.5} |
+| Metadata | Keywords / Description | {X}/10 | 15% | {X * 1.5} |
+| Visibility | Ratings & Reviews | {X}/10 | 15% | {X * 1.5} |
+| Visibility | Ranking Signals | {X}/10 | 10% | {X * 1.0} |
+| Conversion | Screenshots | {X}/10 | 15% | {X * 1.5} |
+| Conversion | Icon | {X}/10 | 5% | {X * 0.5} |
+| Conversion | Description Quality | {X}/10 | 5% | {X * 0.5} |
+| **TOTAL** | | | **100%** | **{sum}/100** |
+
+Weights reference: ASO Scoring Rubric category weights in `rules/aso-domain.md` (Metadata 50%, Visibility 25%, Conversion 25%).
+
+### Letter Grade
+
+Map the total score to a letter grade using the table from `rules/aso-domain.md`:
+
+| Score Range | Grade |
+|-------------|-------|
+| 95-100 | A+ |
+| 90-94 | A |
+| 85-89 | B+ |
+| 80-84 | B |
+| 75-79 | C+ |
+| 70-74 | C |
+| 60-69 | D |
+| Below 60 | F |
+
+Report: **Overall ASO Score: {score}/100 ({grade})**
+
+### Category Sub-Scores
+
+Calculate and display the sub-score for each scoring category by summing the weighted scores of its component factors:
+
+- **Metadata:** Title weighted + Subtitle weighted + Keywords weighted (out of 50)
+- **Visibility:** Ratings & Reviews weighted + Ranking Signals weighted (out of 25)
+- **Conversion:** Screenshots weighted + Icon weighted + Description Quality weighted (out of 25)
+
+Report: `Metadata: {X}/50 | Visibility: {X}/25 | Conversion: {X}/25`
+
+These sub-scores identify which category is the strongest and which needs the most improvement.
+
+### Scoring Notes
+
+Factors scored from available metadata are based on the analysis performed in the sections above. Screenshots, Icon, and Ranking Signals receive a neutral 5/10 default -- provide additional assets or App Store Connect / Google Play Console data for accurate scoring of these factors.
+
+Platform-specific adjustments per `rules/aso-domain.md`:
+- **iOS:** Keywords factor scores the Keyword Field optimization quality (100-char hidden field)
+- **Android:** Keywords factor scores Full Description keyword density and integration
+- **iOS:** Description Quality scores conversion copywriting (not indexed by Apple)
+- **Android:** Description Quality scores keyword integration combined with readability (indexed by Google)
+
+`All scores are analytical assessments based on observable metadata and ASO best practices. [ESTIMATED]`
+
+---
+
 ## Analysis Summary
 
 After completing all analysis sections above, provide a concise summary.
@@ -301,7 +435,7 @@ List the 3 most impactful findings from the analysis, ordered by priority. Each 
 
 ### Next Steps
 
-"For scoring, competitive context, and a full report file, these features will be available in a future update."
+"For a full report file export, this feature will be available in a future update."
 
 ---
 
