@@ -247,6 +247,223 @@ Then generate 3-5 options from scratch following the same variant generation rul
 
 ---
 
+## iOS Keyword Field Composition
+
+> The keyword field is an iOS-exclusive hidden metadata field (100 characters) indexed by Apple's search algorithm. It is the third most important metadata field for iOS search ranking, after title and subtitle. This section composes an optimized keyword field string that maximizes unique keyword coverage.
+
+**If the app's platform is Android:** Print the following and skip to Description Optimization:
+
+`iOS keyword field not applicable -- Google Play has no hidden keyword field. Keywords are integrated via the description (see Description Optimization below).`
+
+### Construction Rules
+
+Reference: iOS Keyword Field Rules in `rules/aso-domain.md`. The rules are restated here for composition convenience:
+
+1. **Comma-separated, NO spaces after commas** -- Spaces consume characters. Write `keyword1,keyword2` not `keyword1, keyword2`.
+2. **Do NOT include words already in the app's Title or Subtitle** -- Apple auto-indexes title + subtitle + keyword field together. Repeating words wastes space without adding search coverage.
+3. **Prefer singular forms over plural** -- Apple indexes both singular and plural from the singular form. Use "tracker" not "trackers".
+4. **Do NOT include competitor brand names** -- Policy violation risk. Apple may reject the update.
+5. **Omit prepositions and articles** -- "the", "a", "for", "and", "of", "in", "to", "with" waste space in the keyword field.
+6. **Use every available character** -- Unused space is wasted ranking opportunity. Target 95-100 characters used.
+
+### Composition Process [ESTIMATED]
+
+Using the optimized title and subtitle variants recommended in the sections above, compose the keyword field:
+
+1. **Identify uncovered keywords.** From the target keyword list, identify all keywords NOT already covered by words in the recommended title variant and subtitle variant. These are the candidates for the keyword field.
+2. **Decompose multi-word keywords.** Convert multi-word phrases into individual words. Only include a word if it is not already covered by another entry in the keyword field or by the title/subtitle. For example, "guided meditation" contributes "guided" and "meditation" as separate terms -- but if "meditation" is already in the title, only "guided" is added.
+3. **Convert plurals to singular.** Apply singular conversion to all candidate words (e.g., "exercises" becomes "exercise", "trackers" becomes "tracker"). Apple indexes both forms from the singular.
+4. **Strip filler words.** Remove prepositions, articles, and filler words (the, a, for, and, of, in, to, with) before inserting into the string.
+5. **Prioritize by relevance.** If a prior `/aso:keywords` report is available, use the relevance scores to order keywords (highest first). If user-provided volume data is available, use volume as a tiebreaker within the same relevance tier. Otherwise, prioritize by estimated importance to the app's core use case.
+6. **Pack the keyword string.** Add keywords comma-separated (no spaces after commas) until approaching 100 characters. Start with the highest-priority uncovered terms and work down.
+
+### Generated Keyword String
+
+Display the composed keyword field string in a code block:
+
+```
+keyword1,keyword2,keyword3,related,term,synonym,feature
+```
+
+After the string, display the character count:
+
+`{N}/100 characters used ({remaining} remaining)`
+
+- **If over 100 characters:** Trim keywords from the lowest-priority end (lowest relevance, then lowest volume/popularity) until the string fits within 100 characters. Note which keywords were removed: `"Removed due to space: {keyword1}, {keyword2} (lowest priority)"`
+- **If under 90 characters:** Note available space: `"Consider adding more terms to maximize coverage -- {remaining} characters available."`
+- **If between 90 and 100 characters:** No additional note needed -- this is optimal usage.
+
+### Coverage Summary [ESTIMATED]
+
+After the generated string, assess the combined keyword coverage:
+
+1. **Unique searchable terms:** Count unique searchable words from the combined title + subtitle + keyword field (deduplicated). Display: `"{N} unique searchable terms from combined metadata (title + subtitle + keyword field)"`
+2. **High-priority overflow:** List any high-priority target keywords (relevance 8+ or core use-case terms) that could NOT fit in the keyword field. Show each with its relevance or importance level.
+3. **Swap suggestions:** If critical keywords (relevance 9-10 or essential to the app's primary function) were excluded due to space constraints, suggest specific swaps: `"Overflow -- consider swapping: remove '{low_priority_term}', add '{high_priority_term}' for better coverage."`
+
+`Keyword field composition is an optimized recommendation based on target keyword analysis, title/subtitle coverage, and iOS Keyword Field Rules from rules/aso-domain.md. [ESTIMATED]`
+
+---
+
+## Description Optimization
+
+> Description strategy differs fundamentally by platform. iOS descriptions are NOT indexed for search (optimize purely for conversion). Google Play descriptions ARE indexed (optimize for both keyword integration and readability). This section produces an optimized description for the detected platform.
+
+Branch optimization by platform:
+
+### iOS Description (4,000 characters, NOT indexed)
+
+Since Apple does NOT index the description for search ranking, optimize purely for conversion and user persuasion.
+
+#### 1. Current Description Analysis [OBSERVED]
+
+Analyze the current description (if available):
+
+- **Character count:** Report `{current_length}/4,000 characters used ({remaining} remaining)`
+- **First 3 lines quality:** The store listing truncates after approximately 3 lines. Do the first 3 lines state the core value proposition clearly and create curiosity to read more?
+- **CTA presence:** Is there a clear call-to-action at the end of the description?
+- **Social proof:** Are there mentions of awards, press coverage, user count, testimonials, or ratings?
+
+If no current description is available, note: `No current description found -- generating optimized copy from scratch based on app context and target keywords.`
+
+#### 2. Generate Optimized Description [ESTIMATED]
+
+Generate an optimized description focusing on:
+
+- **Strong opening hook in first 3 lines** -- The visible portion before the "more" tap. This must communicate the core value proposition immediately and compel the user to expand.
+- **Benefit-focused language** -- Write "Track your sleep and wake refreshed" not "Sleep tracking feature". Frame every feature as a user benefit.
+- **Scannable formatting** -- Short paragraphs (2-3 sentences), bullet points for feature lists, visual breaks between sections. No wall of text.
+- **Clear call-to-action at the end** -- Direct prompt to install (e.g., "Download now and start your journey to better sleep").
+- **Social proof integration** -- If awards, user count, press mentions, or notable reviews are available from the app context, weave them in naturally. If not available, note where social proof could be added.
+
+#### 3. Optimized Description Output
+
+Present the optimized description with:
+
+- The full optimized description text
+- Character count: `{N}/4,000 characters ({remaining} remaining)`
+- Key changes from the original description and why each change improves conversion
+
+`iOS description is optimized for conversion (not indexed by Apple for search). [ESTIMATED]`
+
+---
+
+### Google Play Description (4,000 characters, IS indexed)
+
+Since Google Play DOES index the full description for search ranking, optimize for both keyword integration AND readability.
+
+#### 1. Current Description Analysis [OBSERVED]
+
+Analyze the current description (if available):
+
+- **Character count:** Report `{current_length}/4,000 characters used ({remaining} remaining)`
+- **Keyword density:** Count instances of target keywords in the current description. Report: `{keyword_count} keyword instances in {char_count} chars = 1 per {chars_per_keyword} chars`
+- **Keyword placement:** Are target keywords present in the first paragraph (highest ranking weight)?
+
+If no current description is available, note: `No current description found -- generating optimized copy from scratch with keyword integration based on target keywords.`
+
+#### 2. Generate Optimized Description [ESTIMATED]
+
+Generate an optimized description focusing on:
+
+- **Front-load primary keywords in the first paragraph** -- The opening 250 characters carry the most ranking weight. Place the most important target keyword in the first sentence.
+- **Target density: approximately 1 keyword mention per 250 characters** -- For a 2,000-character description, target 8 keyword instances. For a 4,000-character description, target up to 16 instances.
+- **Natural keyword integration** -- Keywords must read naturally within sentences. Never keyword-stuff -- Google Play penalizes unnatural repetition and may reject the listing.
+- **Per-keyword frequency: 1-3 mentions each** -- Primary keyword up to 3 times, secondary keywords 1-2 times each. Distribute across the full description (not clustered in one section).
+- **Strong opening hook and closing CTA** -- Same conversion value as iOS. The first 3 lines matter for both ranking and conversion.
+- **Scannable formatting** -- Short paragraphs, bullet points, visual breaks. Easy to scan on a mobile screen.
+
+#### 3. Optimized Description Output
+
+Present the optimized description with:
+
+- The full optimized description text
+- Character count: `{N}/4,000 characters ({remaining} remaining)`
+- Keyword density report: `{keyword_count} keyword instances in {char_count} chars = 1 per {chars_per_keyword} chars`
+- Target keywords placed and their frequency in the optimized text:
+
+| Keyword | Frequency | Placement |
+|---------|-----------|-----------|
+| {keyword} | {N}x | {first paragraph, feature section, closing, etc.} |
+| ... | ... | ... |
+
+- Key changes from the original description and the rationale for each change
+
+`Google Play description is optimized for both keyword integration and conversion (indexed by Google for search). [ESTIMATED]`
+
+---
+
+### Missing Description
+
+If the description is empty or missing from the input:
+
+Note this as an opportunity: `No description currently set. Generate an optimized description from scratch using app context and target keywords.`
+
+Then generate the platform-appropriate description following the rules above. Treat this as a greenfield optimization with maximum creative latitude.
+
+---
+
+## Character Limit Validation Summary
+
+> This table provides a single-glance validation that all optimized output respects platform character limits and is submission-ready.
+
+After all optimization sections, validate every field's compliance:
+
+| Field | Content | Chars | Limit | Status |
+|-------|---------|-------|-------|--------|
+| Title | {recommended variant text} | {N} | {platform limit} | {OK / OVER by N} |
+| Subtitle / Short Desc | {recommended variant text} | {N} | {platform limit} | {OK / OVER by N} |
+| Keyword Field (iOS only) | {composed keyword string} | {N} | 100 | {OK / OVER by N} |
+| Description | {first 50 chars of optimized description...} | {N} | 4,000 | {OK / OVER by N} |
+
+**Platform limits reference** (from `rules/aso-domain.md`):
+- iOS: Title 30, Subtitle 30, Keyword Field 100, Description 4,000
+- Google Play: Title 30, Short Description 80, Description 4,000
+
+**Validation rules:**
+
+- Any field marked **OVER** must be flagged: `"CRITICAL: {field} exceeds the {limit}-character limit by {N} characters. Trim before submitting."`
+- If all fields pass: `"All metadata fields are within platform character limits."`
+- For Android: The Keyword Field row is omitted (Google Play has no keyword field). Display only Title, Short Description, and Description.
+
+`Character limit validation is based on platform limits defined in rules/aso-domain.md. [OBSERVED for character counts, ESTIMATED for content recommendations]`
+
+---
+
+## Analysis Summary
+
+Concise summary of the optimization results, following the pattern established in `/aso:audit` and `/aso:keywords`.
+
+### Quick Stats [ESTIMATED]
+
+| Field | Current | Optimized | Limit | Change |
+|-------|---------|-----------|-------|--------|
+| Title | {current chars} | {optimized chars} | {platform limit} | {+/-N chars, +/-N keywords} |
+| Subtitle / Short Desc | {current chars} | {optimized chars} | {platform limit} | {+/-N chars, +/-N keywords} |
+| Keyword Field (iOS) | {current if known, or "N/A"} | {optimized chars} | 100 | {N unique terms covered} |
+| Description | {current chars} | {optimized chars} | 4,000 | {keyword density change for GP, or conversion improvements for iOS} |
+
+For Android, the Keyword Field row shows "N/A" in the Current column and is omitted from the Optimized column.
+
+### Top 3 Changes
+
+List the 3 most impactful optimization changes with brief rationale:
+
+1. **{Change title}** -- {What was changed and why it is the highest-impact improvement}
+2. **{Change title}** -- {What was changed and why}
+3. **{Change title}** -- {What was changed and why}
+
+### Next Steps
+
+- "Review the variants above and select your preferred option for each field."
+- "To see a side-by-side comparison with keyword coverage verification, run `/aso:optimize` with `--compare` or proceed to Phase 9."
+- "To audit your current listing, run `/aso:audit`."
+- "To research additional keywords, run `/aso:keywords`."
+
+Note: Report output, before/after comparison, and keyword coverage verification are NOT included in this command -- those belong to Phase 9 (OPTM-07, OPTM-08, OPTM-09).
+
+---
+
 ## Data Labeling Convention
 
 Follow the OBSERVED/ESTIMATED labeling convention from `rules/aso-domain.md` throughout all output:
