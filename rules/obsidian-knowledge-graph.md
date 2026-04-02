@@ -27,7 +27,8 @@ All knowledge is organized as a directed acyclic graph. Links flow downward from
 _Router → Workflows → _IP Hub → IP Guidelines → Activity Rules → Scoped Sub-rules
 ```
 
-- **Never skip levels.** Router does not link to leaf nodes. Children do not link up to workflows.
+- **Go as deep as context requires.** If the request names a specific game, traverse to IP Hub and beyond. If it's generic (no game specified), stop at the workflow level. The workflow file alone is sufficient for generic work.
+- **Never skip levels.** When traversing, follow each level in order. Router does not link to leaf nodes. Children do not link up to workflows.
 - **Children link only to their parent.** A child file says "Child of [[Parent]]" — nothing else.
 - **Parents link only to their children.** Via an action/scope table.
 - **No cross-links between branches.** Marvel Copy Rules does not link to Monopoly Copy Rules.
