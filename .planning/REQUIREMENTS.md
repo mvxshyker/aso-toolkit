@@ -31,7 +31,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **AUDT-07**: Weighted scoring system outputs 0-100 numeric score with letter grade and category breakdowns (Metadata, Visibility, Conversion)
 - [x] **AUDT-08**: Light competitor context shows top 3-5 competitors' titles, subtitles, and ratings via web search
 - [x] **AUDT-09**: Every finding pairs with a specific, actionable recommendation prioritized by impact (Critical/High/Medium/Low)
-- [ ] **AUDT-10**: Report written as .md file to working directory AND summary printed inline
+- [x] **AUDT-10**: Report written as .md file to working directory AND summary printed inline
 
 ### Keyword Research
 
@@ -132,7 +132,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUDT-07 | Phase 4 | Complete |
 | AUDT-08 | Phase 4 | Complete |
 | AUDT-09 | Phase 4 | Complete |
-| AUDT-10 | Phase 5 | Pending |
+| AUDT-10 | Phase 5 | Complete |
 | KWRD-01 | Phase 6 | Pending |
 | KWRD-02 | Phase 6 | Pending |
 | KWRD-03 | Phase 6 | Pending |
