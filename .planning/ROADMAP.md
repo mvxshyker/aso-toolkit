@@ -77,7 +77,10 @@ Plans:
   2. Weighted scoring system outputs a 0-100 numeric score with letter grade and category breakdowns (Metadata, Visibility, Conversion)
   3. Top 3-5 competitors' titles, subtitles, and ratings are displayed via the aso-analyst subagent
   4. Every audit finding is paired with a specific, actionable recommendation labeled by impact level (Critical, High, Medium, Low)
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 04-01-PLAN.md — Add Rating/Review Summary and Weighted Scoring System sections to audit command
+- [ ] 04-02-PLAN.md — Add Competitive Context (aso-analyst subagent) and Prioritized Recommendations sections, update Analysis Summary
 
 ### Phase 5: Audit Output and Reporting
 **Goal**: The audit command produces a persistent, well-structured report file and a quick inline summary
@@ -156,7 +159,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 | 1. Domain Knowledge Foundation | 0/1 | Planning complete | - |
 | 2. Subagent Infrastructure | 0/1 | Planning complete | - |
 | 3. Audit Metadata Analysis | 0/2 | Planning complete | - |
-| 4. Audit Scoring and Competitive Context | 0/0 | Not started | - |
+| 4. Audit Scoring and Competitive Context | 0/2 | Planning complete | - |
 | 5. Audit Output and Reporting | 0/0 | Not started | - |
 | 6. Keyword Research Core | 0/0 | Not started | - |
 | 7. Keyword Platform Output | 0/0 | Not started | - |
