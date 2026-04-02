@@ -43,7 +43,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **KWRD-06**: iOS output includes ready-to-paste keyword field string (100 chars, comma-separated, optimized)
 - [x] **KWRD-07**: Google Play output includes keyword integration guidance for description writing
 - [x] **KWRD-08**: Prioritized final list with top 10-15 focus keywords clearly highlighted, combining user-provided scores + relevance analysis
-- [ ] **KWRD-09**: Report written as .md file to working directory AND summary printed inline
+- [x] **KWRD-09**: Report written as .md file to working directory AND summary printed inline
 
 ### Metadata Optimization
 
@@ -141,7 +141,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | KWRD-06 | Phase 7 | Complete |
 | KWRD-07 | Phase 7 | Complete |
 | KWRD-08 | Phase 7 | Complete |
-| KWRD-09 | Phase 7 | Pending |
+| KWRD-09 | Phase 7 | Complete |
 | OPTM-01 | Phase 8 | Pending |
 | OPTM-02 | Phase 8 | Pending |
 | OPTM-03 | Phase 8 | Pending |
