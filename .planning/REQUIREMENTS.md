@@ -110,47 +110,47 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUN-01 | — | Pending |
-| FOUN-02 | — | Pending |
-| FOUN-03 | — | Pending |
-| FOUN-04 | — | Pending |
-| AUDT-01 | — | Pending |
-| AUDT-02 | — | Pending |
-| AUDT-03 | — | Pending |
-| AUDT-04 | — | Pending |
-| AUDT-05 | — | Pending |
-| AUDT-06 | — | Pending |
-| AUDT-07 | — | Pending |
-| AUDT-08 | — | Pending |
-| AUDT-09 | — | Pending |
-| AUDT-10 | — | Pending |
-| KWRD-01 | — | Pending |
-| KWRD-02 | — | Pending |
-| KWRD-03 | — | Pending |
-| KWRD-04 | — | Pending |
-| KWRD-05 | — | Pending |
-| KWRD-06 | — | Pending |
-| KWRD-07 | — | Pending |
-| KWRD-08 | — | Pending |
-| KWRD-09 | — | Pending |
-| OPTM-01 | — | Pending |
-| OPTM-02 | — | Pending |
-| OPTM-03 | — | Pending |
-| OPTM-04 | — | Pending |
-| OPTM-05 | — | Pending |
-| OPTM-06 | — | Pending |
-| OPTM-07 | — | Pending |
-| OPTM-08 | — | Pending |
-| OPTM-09 | — | Pending |
-| DIST-01 | — | Pending |
-| DIST-02 | — | Pending |
-| DIST-03 | — | Pending |
+| FOUN-01 | Phase 1 | Pending |
+| FOUN-02 | Phase 1 | Pending |
+| FOUN-03 | Phase 1 | Pending |
+| FOUN-04 | Phase 2 | Pending |
+| AUDT-01 | Phase 3 | Pending |
+| AUDT-02 | Phase 3 | Pending |
+| AUDT-03 | Phase 3 | Pending |
+| AUDT-04 | Phase 3 | Pending |
+| AUDT-05 | Phase 3 | Pending |
+| AUDT-06 | Phase 4 | Pending |
+| AUDT-07 | Phase 4 | Pending |
+| AUDT-08 | Phase 4 | Pending |
+| AUDT-09 | Phase 4 | Pending |
+| AUDT-10 | Phase 5 | Pending |
+| KWRD-01 | Phase 6 | Pending |
+| KWRD-02 | Phase 6 | Pending |
+| KWRD-03 | Phase 6 | Pending |
+| KWRD-04 | Phase 6 | Pending |
+| KWRD-05 | Phase 6 | Pending |
+| KWRD-06 | Phase 7 | Pending |
+| KWRD-07 | Phase 7 | Pending |
+| KWRD-08 | Phase 7 | Pending |
+| KWRD-09 | Phase 7 | Pending |
+| OPTM-01 | Phase 8 | Pending |
+| OPTM-02 | Phase 8 | Pending |
+| OPTM-03 | Phase 8 | Pending |
+| OPTM-04 | Phase 8 | Pending |
+| OPTM-05 | Phase 8 | Pending |
+| OPTM-06 | Phase 8 | Pending |
+| OPTM-07 | Phase 9 | Pending |
+| OPTM-08 | Phase 9 | Pending |
+| OPTM-09 | Phase 9 | Pending |
+| DIST-01 | Phase 10 | Pending |
+| DIST-02 | Phase 10 | Pending |
+| DIST-03 | Phase 10 | Pending |
 
 **Coverage:**
 - v1 requirements: 35 total
-- Mapped to phases: 0
-- Unmapped: 35
+- Mapped to phases: 35
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-02*
-*Last updated: 2026-04-02 after initial definition*
+*Last updated: 2026-04-02 after roadmap creation*
