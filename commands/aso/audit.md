@@ -417,6 +417,65 @@ Platform-specific adjustments per `rules/aso-domain.md`:
 
 ---
 
+## Competitive Context
+
+> This section provides competitive benchmarking by spawning the `aso-analyst` subagent to research competitor listings. Understanding how competitors position their apps gives context to every finding in this audit.
+
+### Subagent Invocation
+
+Spawn the `aso-analyst` agent (`agents/aso-analyst.md`) using the **Agent tool**. Pass the following parameters derived from this audit's app data:
+
+| Parameter | Value Source |
+|-----------|-------------|
+| `app_name` | The app's title (from `.aso-context.json` field `title` or fetched metadata `trackName`) |
+| `app_category` | The app's category (from `.aso-context.json` field `category` or fetched metadata `primaryGenreName`) |
+| `platform` | The detected platform (`"ios"` or `"android"`) from Input Resolution |
+| `target_keywords` | Keywords identified during Title Analysis and Subtitle/Short Description Analysis (optional but recommended -- improves keyword overlap analysis) |
+
+**Prompt for the agent:**
+
+> Analyze the competitive landscape for `{app_name}` in the `{app_category}` category on `{platform}`. Return the competitor comparison table, key observations, and data sources. {If target_keywords are available: "Target keywords to check against competitors: {keyword_list}"}
+
+### Fallback Handling
+
+**Insufficient results:** If the `aso-analyst` agent returns fewer than 3 competitors or returns partial data, display whatever was returned and append:
+
+`Limited competitor data available. For more comprehensive competitive analysis, provide specific competitor URLs and re-run the audit.`
+
+**Agent unavailable:** If the Agent tool is unavailable or the `aso-analyst` agent cannot be spawned (missing file, tool restriction, or error), skip the competitor comparison table and note:
+
+`Competitive context unavailable -- aso-analyst agent could not be reached. Run /aso:audit again or check that agents/aso-analyst.md is installed.`
+
+In this case, skip the Competitive Positioning subsection below and proceed directly to Prioritized Recommendations.
+
+### Output Integration
+
+Display the `aso-analyst` agent's output directly in the audit:
+
+1. **Competitor Comparison Table** -- Display the full table returned by the agent. All competitor metadata (titles, subtitles, ratings, review counts) is sourced from store listings or APIs. [OBSERVED]
+
+2. **Key Observations** -- Display the agent's analytical observations on title patterns, keyword coverage, rating landscape, and missing opportunities. [ESTIMATED]
+
+3. **Data Sources** -- Display the agent's data sources table for transparency, showing the URL or API endpoint used for each competitor.
+
+### Competitive Positioning [ESTIMATED]
+
+After displaying the agent's output, synthesize a brief positioning assessment for the audited app:
+
+**1. Rating Comparison:**
+Compare the audited app's rating (from the Rating and Review Summary section) against the average rating of discovered competitors. Report:
+`Your rating: {app_rating}/5.0 | Competitor average: {avg_competitor_rating}/5.0 | Position: {above/below/at average}`
+
+**2. Title Strategy Comparison:**
+Compare the audited app's title keyword approach (from the Title Analysis section) against competitor title patterns noted by the agent. Are competitors front-loading different keywords? Is the audited app's brand-vs-keyword balance typical or unusual for the category?
+
+**3. Differentiation Opportunities:**
+Draw from the agent's "Missing opportunities" observation to identify positioning gaps. These are keywords, features, or angles that competitors have not claimed -- representing potential differentiation for the audited app.
+
+`Competitive positioning assessment is based on comparison of the audited app's metadata against competitor data gathered by the aso-analyst agent. [ESTIMATED]`
+
+---
+
 ## Analysis Summary
 
 After completing all analysis sections above, provide a concise summary.
