@@ -89,7 +89,9 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Running /aso:audit writes a structured .md report file to the user's working directory with a clear filename
   2. An inline summary is printed in the conversation showing the overall score, letter grade, and top 3 findings
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 05-01-PLAN.md — Add Report Output section with .md file generation via Write tool and update Analysis Summary inline references
 
 ### Phase 6: Keyword Research Core
 **Goal**: Users can provide their keyword data and get expanded, scored, and grouped keyword analysis
@@ -160,7 +162,7 @@ Note: Phases 3, 6, and 8 all depend only on Phase 1 and could theoretically exec
 | 2. Subagent Infrastructure | 0/1 | Planning complete | - |
 | 3. Audit Metadata Analysis | 0/2 | Planning complete | - |
 | 4. Audit Scoring and Competitive Context | 0/2 | Planning complete | - |
-| 5. Audit Output and Reporting | 0/0 | Not started | - |
+| 5. Audit Output and Reporting | 0/1 | Planning complete | - |
 | 6. Keyword Research Core | 0/0 | Not started | - |
 | 7. Keyword Platform Output | 0/0 | Not started | - |
 | 8. Metadata Optimization Core | 0/0 | Not started | - |
