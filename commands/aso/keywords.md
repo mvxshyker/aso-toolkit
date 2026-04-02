@@ -184,13 +184,197 @@ Popularity signals are addressed separately -- if the user provides volume data,
 
 ---
 
-## Next Steps
+## User-Provided Data Integration
 
-After presenting the scored keyword table, suggest:
+When the user's keyword input includes volume and/or difficulty scores from their paid ASO tools (AppTweak, Sensor Tower, data.ai, etc.), handle them with strict preservation.
 
-`To see intent grouping, popularity signals, and optimization recommendations, continue with the next phase of keyword analysis.`
+### Rules
 
-`To optimize your store listing metadata using these keywords, run /aso:optimize.`
+1. **Preserve exactly** -- Never modify, round, re-estimate, or reinterpret user-provided volume or difficulty numbers. Display them in their original form exactly as the user supplied them.
+2. **Label as [USER-PROVIDED]** -- User-provided data is distinct from OBSERVED (data fetched from a live source) and ESTIMATED (Claude's analytical assessments). User-provided data comes from the user's paid tools and is trusted as-is.
+3. **Display alongside Claude's analysis** -- The keyword table must show both Claude's relevance score [ESTIMATED] and the user's volume/difficulty [USER-PROVIDED] when provided. These are independent assessments that complement each other.
+
+### Enhanced Table Format (User Provides Scores)
+
+When the user's keyword input includes volume and/or difficulty columns, use this expanded table format:
+
+| Keyword | Relevance [ESTIMATED] | Volume [USER-PROVIDED] | Difficulty [USER-PROVIDED] | Explanation | Source |
+|---------|----------------------|----------------------|---------------------------|-------------|--------|
+| meditation | 10/10 | 62 | 43 | Core app feature, exact match to primary use case | Seed |
+| mindfulness | 9/10 | -- | -- | Strong synonym for app's central theme | Expansion |
+| sleep tracker | 8/10 | 35 | 28 | Key feature the app offers | Apple autocomplete |
+
+- A `--` in Volume or Difficulty means the user provided scores for some keywords but not this one. Preserve the column and show the gap.
+- If the user provides only volume (no difficulty) or only difficulty (no volume), include the column they provided and omit the other entirely.
+
+### Table Format Without User Scores
+
+When the user does NOT provide volume or difficulty data:
+
+- Do NOT fabricate numbers. Do NOT estimate numeric volume or difficulty.
+- Omit the Volume and Difficulty columns entirely -- no empty columns, no dashes, no placeholder values.
+- The Popularity Signals section below provides directional guidance instead.
+- Use the standard relevance table format from the Relevance Scoring section above.
+
+### Data Source Reference
+
+User-provided scores originate from the user's paid ASO tools. These tools have access to proprietary search volume and competition data that cannot be replicated from public sources. Treat [USER-PROVIDED] data as the most authoritative source when available. Reference: Data Integrity section in `rules/aso-domain.md`.
+
+---
+
+## Popularity Signals
+
+When the user has NOT provided volume or difficulty data, provide directional popularity signals using Apple autocomplete presence as a proxy. This section is skipped entirely if user-provided volume/difficulty data is available.
+
+**If user provided volume/difficulty data:** Print the following and skip to Intent Grouping:
+
+`Popularity signals skipped -- using your provided volume/difficulty data.`
+
+### Method
+
+For the top 20 keywords by relevance score, check Apple autocomplete presence as a directional popularity signal:
+
+1. Use WebSearch to query: `{keyword} site:apps.apple.com` (or `site:play.google.com` for Android)
+2. Examine search results for indicators of popularity:
+   - Does the keyword appear in autocomplete suggestions?
+   - How many top apps target this term in their title or subtitle?
+   - Is the term common in the app category's listings?
+3. Classify each keyword into a popularity tier based on the signals found.
+
+### Popularity Tiers [ESTIMATED]
+
+| Tier | Signal | Interpretation |
+|------|--------|----------------|
+| High | Appears in autocomplete, multiple top apps target this term in titles/subtitles | Likely high search volume -- competitive keyword, harder to rank for |
+| Medium | Appears in autocomplete or found in several app titles/subtitles | Moderate search interest -- achievable ranking with good metadata |
+| Low | Not in autocomplete, few apps target this term | Niche -- lower volume but potentially lower competition, easier to rank |
+| Unknown | Could not determine from available signals | Insufficient signal -- recommend user check paid tools for verification |
+
+### Popularity-Enhanced Table
+
+Add a Popularity column to the keyword table for the top 20 keywords checked:
+
+| Keyword | Relevance | Popularity [ESTIMATED] | Explanation | Source |
+|---------|-----------|----------------------|-------------|--------|
+| meditation | 10/10 | High | Core feature, highly competitive category term | Seed |
+| sleep tracker | 8/10 | Medium | Feature term found in several competitor subtitles | Apple autocomplete |
+| zen timer | 6/10 | Low | Niche term, few apps targeting it directly | Semantic expansion |
+
+Keywords beyond the top 20 (lower relevance) do not receive a popularity check. Mark them as `Popularity: --` in the table.
+
+### Important Caveats
+
+Include these caveats in the output when displaying popularity signals:
+
+- "Popularity tiers are directional estimates based on Apple autocomplete presence and competitor analysis. They are NOT search volume numbers."
+- "For accurate volume and difficulty data, use a paid ASO tool (AppTweak, Sensor Tower, data.ai) and re-run `/aso:keywords` with your data file."
+- "Popularity signals are most useful for relative comparison between keywords in your list -- ranking keywords against each other -- not as absolute volume indicators."
+
+Reference: Data Integrity section in `rules/aso-domain.md` -- popularity tiers are [ESTIMATED] and must not be presented as observed data.
+
+---
+
+## Intent Grouping
+
+Group ALL keywords (seed + expanded) into intent categories. Every keyword must appear in exactly one group. No keyword should be omitted or duplicated across groups.
+
+### Intent Categories
+
+| Intent Category | Definition | Example Keywords |
+|-----------------|------------|-----------------|
+| Navigational | User searching for a specific app by name or brand | "spotify", "calm app", "headspace" |
+| Feature-Seeking | User searching for a specific capability or function | "sleep tracker", "guided meditation", "breathing exercises" |
+| Problem-Solving | User searching for a solution to a problem | "can't sleep", "reduce anxiety", "focus at work" |
+| Comparison | User evaluating options or alternatives | "best meditation app", "calm vs headspace", "free yoga app" |
+| Category | User browsing a general app category | "wellness app", "health and fitness", "mindfulness apps" |
+
+### Classification Guidance
+
+- **Navigational** includes any keyword containing a known app or brand name, even if combined with generic terms ("calm meditation" is navigational because it contains the brand "Calm").
+- **Feature-Seeking** keywords describe a specific function or capability the user wants. These are the strongest conversion keywords because the user wants exactly what the app offers.
+- **Problem-Solving** keywords describe the user's situation or goal, not a specific feature. These often have high install intent because the user is actively seeking a solution.
+- **Comparison** keywords contain comparative language: "best", "top", "vs", "alternative to", "free", "cheap". Users are evaluating options.
+- **Category** keywords describe a broad app category or genre. These are high-volume but lower-conversion because the user's intent is not specific.
+
+When a keyword could fit multiple categories, choose the most specific one. Priority: Navigational > Feature-Seeking > Problem-Solving > Comparison > Category.
+
+### Output Format
+
+For each intent group, list keywords sorted by relevance score (highest first). Include relevance score and volume/popularity if available:
+
+### Navigational
+| Keyword | Relevance | {Volume [USER-PROVIDED] or Popularity [ESTIMATED]} |
+|---------|-----------|-----------------------------------------------------|
+| {keyword} | {score}/10 | {value} |
+
+### Feature-Seeking
+| Keyword | Relevance | {Volume [USER-PROVIDED] or Popularity [ESTIMATED]} |
+|---------|-----------|-----------------------------------------------------|
+| {keyword} | {score}/10 | {value} |
+
+### Problem-Solving
+| Keyword | Relevance | {Volume [USER-PROVIDED] or Popularity [ESTIMATED]} |
+|---------|-----------|-----------------------------------------------------|
+| {keyword} | {score}/10 | {value} |
+
+### Comparison
+| Keyword | Relevance | {Volume [USER-PROVIDED] or Popularity [ESTIMATED]} |
+|---------|-----------|-----------------------------------------------------|
+| {keyword} | {score}/10 | {value} |
+
+### Category
+| Keyword | Relevance | {Volume [USER-PROVIDED] or Popularity [ESTIMATED]} |
+|---------|-----------|-----------------------------------------------------|
+| {keyword} | {score}/10 | {value} |
+
+If a group has zero keywords, display it with a note: "No keywords in this category. Consider adding {intent type} terms to broaden your keyword strategy."
+
+### Group Summary
+
+After all groups, provide an intent distribution summary:
+
+`Intent Distribution: Feature-Seeking ({N}), Problem-Solving ({N}), Category ({N}), Comparison ({N}), Navigational ({N})`
+
+Identify which intent group has the most keywords and which has gaps. Provide a strategic recommendation:
+
+- If Feature-Seeking dominates: "Your keyword list is feature-focused. Consider adding problem-solving terms -- users searching for solutions ('how to sleep better') often have higher install intent."
+- If Problem-Solving dominates: "Strong problem-solving coverage. Consider adding feature-seeking terms to capture users who already know what they want ('meditation timer', 'sleep sounds')."
+- If Category dominates: "Your keywords are broad. Consider adding more specific feature-seeking and problem-solving terms for higher conversion."
+- If Navigational dominates: "Heavy brand/competitor focus. Expand into feature-seeking and problem-solving keywords to capture users who don't yet know which app they want."
+- If Comparison dominates: "Good competitive positioning. Add feature-seeking terms to capture users past the comparison stage."
+- If any group is empty: Note the gap and suggest 2-3 example keywords for that intent category relevant to the app.
+
+---
+
+## Analysis Summary
+
+Concise summary of the keyword research results, following the pattern established in `/aso:audit`.
+
+### Quick Stats
+
+| Metric | Count |
+|--------|-------|
+| Seed keywords | {N} |
+| Expanded keywords | {N} |
+| Total candidates | {N} |
+| High relevance (7+) | {N} |
+| Intent groups covered | {N}/5 |
+
+### Top 5 Keywords
+
+List the top 5 keywords by relevance score. When user-provided volume data is available, factor it into the ranking (relevance first, volume as tiebreaker). When popularity signals are available, note the tier alongside relevance:
+
+1. **{keyword}** -- Relevance: {X}/10{, Volume: {Y} [USER-PROVIDED] | Popularity: {tier} [ESTIMATED]} -- {one-line explanation of why this keyword matters for the app}
+2. **{keyword}** -- Relevance: {X}/10{, ...} -- {explanation}
+3. **{keyword}** -- Relevance: {X}/10{, ...} -- {explanation}
+4. **{keyword}** -- Relevance: {X}/10{, ...} -- {explanation}
+5. **{keyword}** -- Relevance: {X}/10{, ...} -- {explanation}
+
+### Next Steps
+
+- "To generate platform-specific output (iOS keyword field string or Google Play integration guidance), run `/aso:keywords` again with `--output` flag (Phase 7)."
+- "To optimize your metadata using these keywords, run `/aso:optimize`."
+- "To audit your current store listing against these keywords, run `/aso:audit`."
 
 ---
 
