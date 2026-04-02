@@ -22,11 +22,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Store Listing Audit
 
-- [ ] **AUDT-01**: User can run /aso:audit with a store URL or app name and get a structured audit report
-- [ ] **AUDT-02**: Title analysis checks character count vs platform limit, keyword presence, keyword positioning, brand vs keyword balance, readability
-- [ ] **AUDT-03**: Subtitle (iOS) / Short Description (Google Play) analysis checks character usage, keyword coverage, value proposition clarity
-- [ ] **AUDT-04**: Description analysis evaluates conversion quality (iOS, not indexed) or keyword density and natural flow (Google Play, indexed)
-- [ ] **AUDT-05**: iOS keyword field guidance advises on 100-char field strategy: comma-separated, no spaces, no duplication with title/subtitle, maximize unique coverage
+- [x] **AUDT-01**: User can run /aso:audit with a store URL or app name and get a structured audit report
+- [x] **AUDT-02**: Title analysis checks character count vs platform limit, keyword presence, keyword positioning, brand vs keyword balance, readability
+- [x] **AUDT-03**: Subtitle (iOS) / Short Description (Google Play) analysis checks character usage, keyword coverage, value proposition clarity
+- [x] **AUDT-04**: Description analysis evaluates conversion quality (iOS, not indexed) or keyword density and natural flow (Google Play, indexed)
+- [x] **AUDT-05**: iOS keyword field guidance advises on 100-char field strategy: comma-separated, no spaces, no duplication with title/subtitle, maximize unique coverage
 - [ ] **AUDT-06**: Rating/review summary shows score, count, distribution shape, and category comparison
 - [ ] **AUDT-07**: Weighted scoring system outputs 0-100 numeric score with letter grade and category breakdowns (Metadata, Visibility, Conversion)
 - [ ] **AUDT-08**: Light competitor context shows top 3-5 competitors' titles, subtitles, and ratings via web search
@@ -123,11 +123,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ACTX-01 | Phase 3 | Complete |
 | ACTX-02 | Phase 3 | Complete |
 | ACTX-03 | Phase 3 | Complete |
-| AUDT-01 | Phase 3 | Pending |
-| AUDT-02 | Phase 3 | Pending |
-| AUDT-03 | Phase 3 | Pending |
-| AUDT-04 | Phase 3 | Pending |
-| AUDT-05 | Phase 3 | Pending |
+| AUDT-01 | Phase 3 | Complete |
+| AUDT-02 | Phase 3 | Complete |
+| AUDT-03 | Phase 3 | Complete |
+| AUDT-04 | Phase 3 | Complete |
+| AUDT-05 | Phase 3 | Complete |
 | AUDT-06 | Phase 4 | Pending |
 | AUDT-07 | Phase 4 | Pending |
 | AUDT-08 | Phase 4 | Pending |

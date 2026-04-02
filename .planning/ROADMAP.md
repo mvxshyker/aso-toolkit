@@ -66,7 +66,7 @@ Plans:
 **Plans:** 2 plans
 Plans:
 - [x] 03-01-PLAN.md — Create app context commands (/aso:app-new and /aso:app-clear) with .aso-context.json schema and platform detection
-- [ ] 03-02-PLAN.md — Create /aso:audit command with metadata analysis (title, subtitle, description, keyword field guidance)
+- [x] 03-02-PLAN.md — Create /aso:audit command with metadata analysis (title, subtitle, description, keyword field guidance)
 
 ### Phase 4: Audit Scoring and Competitive Context
 **Goal**: The audit produces a quantified score with competitive context so users know exactly where they stand and what matters most
