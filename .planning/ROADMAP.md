@@ -105,7 +105,7 @@ Plans:
   5. Keywords are grouped by intent category: navigational, feature-seeking, problem-solving, comparison, category
 **Plans:** 2 plans
 Plans:
-- [ ] 06-01-PLAN.md — Create /aso:keywords command with input resolution, keyword expansion, and relevance scoring
+- [x] 06-01-PLAN.md — Create /aso:keywords command with input resolution, keyword expansion, and relevance scoring
 - [ ] 06-02-PLAN.md — Add user-data handling, popularity signals, intent grouping, and analysis summary
 
 ### Phase 7: Keyword Platform Output
