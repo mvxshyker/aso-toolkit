@@ -10,14 +10,7 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion, Ag
 
 ## Step 1: Load Knowledge
 
-Read the router at `$ASO_VAULT/_Router.md`. Follow the `copy` route.
-
-1. Read the workflow file linked in the router (`Store Event Copy Guidelines`).
-2. The workflow links to `_IP Hub`. Read it.
-3. Match the game from the user's brief to a row in the IP Hub. If the game has no IP Hub entry, skip to the next step — use only the general copy rules.
-4. If an IP hub exists for this game, read it and find the `copy` child file in its action table.
-
-You now have: general copy rules + client-specific copy/IP rules (if they exist). Apply all available rules.
+Read `$ASO_VAULT/_Router.md`. Follow the `copy` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
 
 ## Step 2: Validate the Brief
 
@@ -27,27 +20,15 @@ Check against the client's "Only Ask If Missing" section. Apply all defaults the
 
 ## Step 3: Research (If Required by IP Rules)
 
-If the game has IP rules and those rules require real-world lore or reference material, launch the `aso-ip-researcher` agent in the background with:
-- **Subject**: the character, theme, or setting from the brief
-- **Game**: the matched game name
-- **Context**: any cultural moment or event context from the brief
-
-Continue to Step 4 while the agent works. Use its lore brief when writing copy. Never use generic filler when the IP rules demand accuracy.
+If the loaded rules require real-world lore, launch the `aso-ip-researcher` agent in the background with the subject, game, and any event context from the brief. Continue to Step 4 while it works.
 
 ## Step 4: Write the Copy
 
-Wait for the `aso-ip-researcher` results if still running. Then write copy following ALL rules from both the general workflow and the client child file simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
+Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
 ## Step 5: Verify the Copy
 
-Launch the `aso-copy-checker` agent with:
-- **Copy block**: the full output you just wrote
-- **General rules path**: path to Store Event Copy Guidelines
-- **Client rules path**: path to the client-specific copy rules file
-- **Apple specs path**: path to Apple App Store Connect Specs
-- **Google specs path**: path to Google Play Console Specs
-
-If the checker returns FAIL: read its violation report, fix the copy yourself, and re-run the checker. Loop until PASS. Present the final copy to the user with the compliance report.
+Launch the `aso-copy-checker` agent with the full copy block and paths to every rules file you loaded. Loop until PASS. Present the final copy with the compliance report.
 
 ## Step 6: Save to Vault
 
