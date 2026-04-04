@@ -7,12 +7,10 @@ Works out of the box with general ASO knowledge. Connect your own knowledge base
 ## Install
 
 ```bash
-git clone https://github.com/mvxshyker/aso-toolkit.git
-cd aso-toolkit
-./install.sh
+curl -fsSL https://raw.githubusercontent.com/mvxshyker/aso-toolkit/main/install.sh | bash
 ```
 
-Restart Claude Code after installing.
+Restart Claude Code. That's it.
 
 ## Commands
 
