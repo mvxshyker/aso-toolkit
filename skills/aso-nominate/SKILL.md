@@ -58,33 +58,50 @@ Description:
 ([character count])
 ```
 
-## Step 2: Check Existing Output
+## Step 2: Resolve Events + Check Existing
 
-Search for existing output matching the brief (same event/character). Check both the vault Nominations folder and `~/.aso-toolkit/output/`. If a match is found, show it to the user and ask:
+### Bulk mode (no arguments)
 
-1. **Anything to improve?** — user describes what's wrong. Fix those parts, save the feedback (see Step 6), replace the old output.
-2. **Rewrite from scratch** — delete the old output, continue to Step 3 as a fresh run.
+If `$ARGUMENTS` is empty, scan all saved events:
+- **With vault:** read the Events index for each game
+- **Without vault:** scan `~/.aso-toolkit/output/*/Events/`
 
-## Step 3: Validate the Brief
+Cross-reference with saved nominations. List events that have no nomination yet. Ask the user which ones to nominate (multi-select or "all"). Process each one sequentially through Steps 3-6.
+
+### Single mode
+
+If `$ARGUMENTS` names an event, search for existing event copy:
+- **With vault:** search the Events folders
+- **Without vault:** search `~/.aso-toolkit/output/*/Events/`
+
+If a matching event is found, show it and ask: "Use this event as context for the nomination?" If yes, use the event copy (character, event type, lore details) as input — skip research for details already in the event file.
+
+Then check for existing nominations for this event. If found, offer:
+1. **Anything to improve?** — fix and evolve
+2. **Rewrite from scratch** — delete and start fresh
+
+## Step 3: Validate
 
 The user's brief is: $ARGUMENTS
 
-Check against the client's "Only Ask If Missing" section. Apply all defaults the client file provides. Only ask for what it explicitly says to ask for.
+If event context was loaded in Step 2, use it — the event file has the character name, star rating, event type, and lore details. Only ask for what's still missing per the client's "Only Ask If Missing" section.
 
-## Step 4: Research (If Required by IP Rules)
+## Step 4: Research (If Needed)
 
-If the loaded rules require real-world lore, launch four research agents **in parallel**:
+If event context was loaded in Step 2, skip research for details already covered. Only launch research agents for gaps — e.g., cultural relevance for the editorial pitch if not in the event file.
+
+If no event context, launch four research agents **in parallel**:
 
 1. `aso-research-lore` — origin, abilities, personality, relationships
 2. `aso-research-ingame` — in-game abilities, tier, meta role
 3. `aso-research-visual` — visual identity, thematic keywords, marketing angles
 4. `aso-research-cultural` — movies, TV, comics, fan sentiment, editorial hooks
 
-When all four complete, launch `aso-research-synthesizer` with the four briefs. Use the synthesized output to write the nomination.
+When all four complete, launch `aso-research-synthesizer` with the four briefs.
 
 ## Step 5: Write the Nomination Pitch
 
-Apply ALL loaded rules simultaneously. Use the synthesized research — especially the "best copy angle" and "cultural relevance" for the editorial pitch. Write in the exact output format specified in the guidelines. Print character counts after every field.
+Apply ALL loaded rules simultaneously. Use the event copy context and/or synthesized research — especially "cultural relevance" and "editorial angle" for the pitch. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
 ## Step 6: Approve, Save, Evolve
 
