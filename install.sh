@@ -58,15 +58,25 @@ for agent_file in "$SOURCE/agents"/*.md; do
     echo "  ✓ Agent: $(basename "$agent_file" .md)"
 done
 
+# Create output directory for approved copy
+OUTPUT_DIR="${HOME}/.aso-toolkit/output"
+mkdir -p "$OUTPUT_DIR"
+
 # Cleanup temp download
 [ -n "$TMPDIR_INSTALL" ] && rm -rf "$TMPDIR_INSTALL"
 
 echo ""
-echo "Done. Available commands:"
+echo "Done. Restart Claude Code to pick up new commands."
+echo ""
+echo "Commands:"
 for skill_dir in "$CLAUDE_HOME/skills"/aso-*/; do
     [ -d "$skill_dir" ] || continue
     name="$(basename "$skill_dir" | sed 's/-/:/g')"
     echo "  /$name"
 done
 echo ""
-echo "Restart Claude Code to pick up new commands."
+echo "Locations:"
+echo "  Skills:  $CLAUDE_HOME/skills/aso-*/"
+echo "  Agents:  $CLAUDE_HOME/agents/aso-*"
+echo "  Output:  $OUTPUT_DIR/"
+[ -n "$ASO_VAULT" ] && echo "  Vault:   $ASO_VAULT"

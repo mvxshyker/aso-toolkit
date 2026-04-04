@@ -31,10 +31,10 @@ Skills launch these sub-agents automatically during their workflow:
 
 ## Output
 
-Every approved piece of copy is saved locally so the skills can learn from your past work — avoiding repeated verbs, hooks, and sentence structures across events. Without a vault, output is saved to `output/` in this repo (gitignored, stays local):
+Every approved piece of copy is saved locally so the skills can learn from your past work — avoiding repeated verbs, hooks, and sentence structures across events. Output is saved to `~/.aso-toolkit/output/`:
 
 ```
-output/
+~/.aso-toolkit/output/
   {game}/
     Events/         # Approved store event copy
     Nominations/    # Approved nomination pitches

@@ -88,6 +88,6 @@ Launch the `aso-copy-checker` agent with the full copy block and paths to every 
 After the user approves, save the output:
 
 - **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Events/{event-name} {date}.md`
-- **Without vault:** `output/{game}/Events/{event-name} {date}.md` (relative to the aso-toolkit repo root)
+- **Without vault:** `~/.aso-toolkit/output/{game}/Events/{event-name} {date}.md`
 
 Create directories if they don't exist. Before writing new copy, read the last 5 saved events for the same game to avoid repeating verbs, hooks, and sentence structures.

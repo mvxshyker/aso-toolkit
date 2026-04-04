@@ -75,6 +75,6 @@ Apply ALL loaded rules simultaneously. Write in the exact output format specifie
 After the user approves, save the output:
 
 - **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Nominations/{event-name} {date}.md`
-- **Without vault:** `output/{game}/Nominations/{event-name} {date}.md` (relative to the aso-toolkit repo root)
+- **Without vault:** `~/.aso-toolkit/output/{game}/Nominations/{event-name} {date}.md`
 
 Create directories if they don't exist.
