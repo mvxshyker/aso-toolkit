@@ -8,13 +8,9 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion
 
 # ASO Nominate — Apple Editorial Nomination Pitch
 
-## Step 0: Load Feedback + Version Check
+## Step 1: Load Knowledge + Version Check
 
-Read `~/.aso-toolkit/feedback/general.md` and `~/.aso-toolkit/feedback/{game}.md` if they exist. Apply any learned rules alongside the other rules. These files contain lessons from previous sessions.
-
-Check for updates: read `~/.aso-toolkit/VERSION`, then fetch `https://raw.githubusercontent.com/mvxshyker/aso-toolkit/main/VERSION`. If the remote version is newer, print: "ASO Toolkit update available ({remote}). Run: curl -fsSL https://raw.githubusercontent.com/mvxshyker/aso-toolkit/main/install.sh | bash" — then continue normally.
-
-## Step 1: Load Knowledge
+Check for updates: read `~/.aso-toolkit/VERSION`, then fetch `https://raw.githubusercontent.com/mvxshyker/aso-toolkit/main/VERSION`. If the remote version is newer, print: "Update available ({remote}). Run `/aso:update`." — then continue normally.
 
 If `$ASO_VAULT` is set and `$ASO_VAULT/_Router.md` exists, read it. Follow the `nominate` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
 
@@ -90,11 +86,11 @@ When all four complete, launch `aso-research-synthesizer` with the four briefs. 
 
 Apply ALL loaded rules simultaneously. Use the synthesized research — especially the "best copy angle" and "cultural relevance" for the editorial pitch. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
-## Step 6: Approve and Save
+## Step 6: Approve, Save, Evolve
 
 Present the final pitch and ask the user:
 
-1. **Approve** — save the output and continue
+1. **Approve** — save the output
 2. **Anything to improve?** — user describes what's wrong. Fix those parts, then ask again.
 
 Loop until approved. On approval, save the output:
@@ -104,11 +100,10 @@ Loop until approved. On approval, save the output:
 
 Create directories if they don't exist.
 
-If the user gave any feedback during this step, save it as a rule:
+If the user gave any feedback during this step, ask: is this **general** or **specific** to this game?
 
-1. Ask: is this feedback **general** (all games) or **specific** to this game?
-2. **General** → append to `~/.aso-toolkit/feedback/general.md`
-3. **Game-specific + vault** → append to the client's nomination rules file in the vault
-4. **Game-specific + no vault** → append to `~/.aso-toolkit/feedback/{game}.md`
+- **General** → ask "Update the skill?" If yes, append the rule to the Writing Rules section of this skill file (`~/.claude/skills/aso-nominate/SKILL.md`).
+- **Game-specific + vault** → append to the client's nomination rules file in the vault.
+- **Game-specific + no vault** → append to the Writing Rules section of this skill file.
 
-Format each entry as a rule: what to do or avoid, and why.
+Format each entry as a numbered rule: what to do or avoid, and why.

@@ -58,9 +58,8 @@ for agent_file in "$SOURCE/agents"/*.md; do
     echo "  ✓ Agent: $(basename "$agent_file" .md)"
 done
 
-# Create output and feedback directories, save version
+# Create output directory, save version
 mkdir -p "${HOME}/.aso-toolkit/output"
-mkdir -p "${HOME}/.aso-toolkit/feedback"
 cp "$SOURCE/VERSION" "${HOME}/.aso-toolkit/VERSION" 2>/dev/null || echo "unknown" > "${HOME}/.aso-toolkit/VERSION"
 
 # Cleanup temp download
@@ -80,5 +79,4 @@ echo "Locations:"
 echo "  Skills:  $CLAUDE_HOME/skills/aso-*/"
 echo "  Agents:  $CLAUDE_HOME/agents/aso-*"
 echo "  Output:  ${HOME}/.aso-toolkit/output/"
-echo "  Feedback: ${HOME}/.aso-toolkit/feedback/"
 [ -n "$ASO_VAULT" ] && echo "  Vault:   $ASO_VAULT"
