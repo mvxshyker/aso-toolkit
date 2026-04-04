@@ -43,12 +43,14 @@ Restart Claude Code after installing.
 | Command | Description |
 |---------|-------------|
 | `/aso:copy-promo` | Write store event & promo copy (Apple In-App Events + Google Play) |
+| `/aso:copy-metadata` | Write optimized iOS App Store metadata (name, subtitle, keywords, description) |
 | `/aso:nominate` | Write Apple editorial nomination pitches |
 
 ### Usage
 
 ```
 /aso:copy-promo Tekken 8 — Kazuya Mishima, 5-star, Challenge event, 500 gem reward
+/aso:copy-metadata Marvel Puzzle Quest — focus on character collection keywords
 /aso:nominate Marvel Snap — Silver Surfer, 5-star, Summer Cosmic event
 ```
 
