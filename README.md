@@ -22,24 +22,14 @@ Restart Claude Code after installing.
 | `/aso:copy-metadata` | Write optimized iOS App Store metadata (name, subtitle, keywords, description) |
 | `/aso:nominate` | Write Apple editorial nomination pitches |
 
-### Usage
+## Agents
 
-```
-/aso:copy-promo Tekken 8 — Kazuya Mishima, 5-star, Challenge event, 500 gem reward
-/aso:copy-metadata Marvel Puzzle Quest — focus on character collection keywords
-/aso:nominate Marvel Snap — Silver Surfer, 5-star, Summer Cosmic event
-```
+Skills launch these sub-agents automatically during their workflow:
 
-## How It Works
-
-Each skill follows the same pattern:
-
-1. **Load knowledge** — from your knowledge base if connected, or general ASO best practices
-2. **Validate the brief** — apply defaults, only ask for what's truly missing
-3. **Research** — look up character lore or IP context if needed
-4. **Write** — apply all loaded rules, print character counts
-5. **Verify** — check against platform limits and rules (copy skills)
-6. **Save** — to your knowledge base if connected, or present for copy-paste
+| Agent | Model | Role |
+|-------|-------|------|
+| `aso-copy-checker` | Haiku | Verifies written copy against all applicable rules and character limits. Returns a structured pass/fail compliance report per field. |
+| `aso-ip-researcher` | Haiku | Researches character lore, abilities, and IP context via web search. Returns a structured lore brief — facts only, no marketing copy. |
 
 ## Two Modes
 
@@ -93,19 +83,6 @@ your-knowledge-base/
 | `copy` | [[Store Event Copy Guidelines]] |
 | `nominate` | [[Apple Event Nomination Guidelines]] |
 | `metadata` | [[iOS Metadata Guidelines]] |
-```
-
-## Repo Structure
-
-```
-skills/              # Slash commands (installed to ~/.claude/skills/)
-  aso-copy-promo/    # /aso:copy-promo
-  aso-copy-metadata/ # /aso:copy-metadata
-  aso-nominate/      # /aso:nominate
-agents/              # Sub-agents (installed to ~/.claude/agents/)
-  aso-copy-checker   # Validates copy against rules & character limits
-  aso-ip-researcher  # Researches character/IP lore via web search
-install.sh           # Copies skills + agents to ~/.claude/
 ```
 
 ## License
