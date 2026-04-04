@@ -58,9 +58,9 @@ for agent_file in "$SOURCE/agents"/*.md; do
     echo "  ✓ Agent: $(basename "$agent_file" .md)"
 done
 
-# Create output directory for approved copy
-OUTPUT_DIR="${HOME}/.aso-toolkit/output"
-mkdir -p "$OUTPUT_DIR"
+# Create output and feedback directories
+mkdir -p "${HOME}/.aso-toolkit/output"
+mkdir -p "${HOME}/.aso-toolkit/feedback"
 
 # Cleanup temp download
 [ -n "$TMPDIR_INSTALL" ] && rm -rf "$TMPDIR_INSTALL"
@@ -78,5 +78,6 @@ echo ""
 echo "Locations:"
 echo "  Skills:  $CLAUDE_HOME/skills/aso-*/"
 echo "  Agents:  $CLAUDE_HOME/agents/aso-*"
-echo "  Output:  $OUTPUT_DIR/"
+echo "  Output:  ${HOME}/.aso-toolkit/output/"
+echo "  Feedback: ${HOME}/.aso-toolkit/feedback/"
 [ -n "$ASO_VAULT" ] && echo "  Vault:   $ASO_VAULT"
