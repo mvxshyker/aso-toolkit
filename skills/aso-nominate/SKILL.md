@@ -10,7 +10,9 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion
 
 ## Step 1: Load Knowledge
 
-Read `$ASO_VAULT/_Router.md`. Follow the `nominate` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
+If `$ASO_VAULT` is set and `$ASO_VAULT/_Router.md` exists, read it. Follow the `nominate` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
+
+If no vault is configured, use general ASO best practices for Apple editorial nominations. Ask the user for any game-specific rules they want applied.
 
 ## Step 2: Validate the Brief
 
@@ -26,9 +28,9 @@ If the loaded rules require real-world lore, use WebSearch to find lore, abiliti
 
 Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
-## Step 5: Save to Vault
+## Step 5: Save (Optional)
 
-After the user approves, save output to:
+If a vault is configured, save output to:
 `$ASO_VAULT/Clients/{publisher}/{game}/Nominations/{event-name} {date}.md`
 
-Create the Nominations directory if it doesn't exist.
+Create the Nominations directory if it doesn't exist. If no vault, present the final pitch for the user to copy.

@@ -6,32 +6,31 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CLAUDE_HOME="${HOME}/.claude"
-if [ -z "${ASO_VAULT:-}" ]; then
-    echo "Error: ASO_VAULT is not set."
-    echo ""
-    echo "  export ASO_VAULT=\"/path/to/your/obsidian/vault/ASO\""
-    echo "  ./install.sh"
-    echo ""
-    exit 1
-fi
+ASO_VAULT="${ASO_VAULT:-}"
 
 echo "Installing ASO Toolkit..."
-echo "  Vault path: $ASO_VAULT"
 
-if [ ! -d "$ASO_VAULT" ]; then
-    echo "  ⚠ Vault not found at $ASO_VAULT"
-    echo "  Set ASO_VAULT env var to your vault path and re-run."
-    exit 1
+if [ -n "$ASO_VAULT" ]; then
+    if [ ! -d "$ASO_VAULT" ]; then
+        echo "  Warning: ASO_VAULT is set but directory not found at $ASO_VAULT"
+        echo "  Skills will install without vault path resolution."
+        ASO_VAULT=""
+    else
+        echo "  Vault path: $ASO_VAULT"
+    fi
+else
+    echo "  No vault configured — skills will use general ASO knowledge."
+    echo "  To connect a knowledge base later: export ASO_VAULT=/path/to/vault && ./install.sh"
 fi
 
-# Install skills (resolve $ASO_VAULT in SKILL.md)
+# Install skills
 if [ -d "$SCRIPT_DIR/skills" ]; then
     for skill_dir in "$SCRIPT_DIR/skills"/*/; do
         skill_name="$(basename "$skill_dir")"
         target="$CLAUDE_HOME/skills/$skill_name"
         mkdir -p "$target"
         for f in "$skill_dir"*; do
-            if [[ "$f" == *.md ]]; then
+            if [[ "$f" == *.md ]] && [ -n "$ASO_VAULT" ]; then
                 sed "s|\$ASO_VAULT|$ASO_VAULT|g" "$f" > "$target/$(basename "$f")"
             else
                 cp -R "$f" "$target/"

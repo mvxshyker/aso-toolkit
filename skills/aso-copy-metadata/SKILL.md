@@ -10,7 +10,9 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion
 
 ## Step 1: Load Knowledge
 
-Read `$ASO_VAULT/_Router.md`. Follow the `metadata` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
+If `$ASO_VAULT` is set and `$ASO_VAULT/_Router.md` exists, read it. Follow the `metadata` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
+
+If no vault is configured, use general ASO best practices and Apple App Store metadata limits. Ask the user for any game-specific rules they want applied.
 
 ## Step 2: Validate the Brief
 
@@ -26,9 +28,9 @@ Metadata requires keyword data. If not provided in the brief, ask the user for i
 
 Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
-## Step 5: Save to Vault
+## Step 5: Save (Optional)
 
-After the user approves, save output to:
+If a vault is configured, save output to:
 `$ASO_VAULT/Clients/{publisher}/{game}/Metadata/{locale} {date}.md`
 
-Create the Metadata directory if it doesn't exist.
+Create the Metadata directory if it doesn't exist. If no vault, present the final metadata for the user to copy.

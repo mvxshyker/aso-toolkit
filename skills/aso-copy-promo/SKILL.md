@@ -10,7 +10,9 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion, Ag
 
 ## Step 1: Load Knowledge
 
-Read `$ASO_VAULT/_Router.md`. Follow the `copy` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
+If `$ASO_VAULT` is set and `$ASO_VAULT/_Router.md` exists, read it. Follow the `copy` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
+
+If no vault is configured, use general ASO best practices and Apple/Google platform character limits. Ask the user for any game-specific or client-specific rules they want applied.
 
 ## Step 2: Validate the Brief
 
@@ -30,9 +32,9 @@ Apply ALL loaded rules simultaneously. Write in the exact output format specifie
 
 Launch the `aso-copy-checker` agent with the full copy block and paths to every rules file you loaded. Loop until PASS. Present the final copy with the compliance report.
 
-## Step 6: Save to Vault
+## Step 6: Save (Optional)
 
-After the user approves, save output to:
+If a vault is configured, save output to:
 `$ASO_VAULT/Clients/{publisher}/{game}/Events/{event-name} {date}.md`
 
-Create the Events directory if it doesn't exist.
+Create the Events directory if it doesn't exist. If no vault, present the final copy for the user to copy.
