@@ -23,6 +23,7 @@ If no vault is configured, apply the general rules below. Ask the user for any g
 3. **Family-Friendly Only.** No violent, dark, or aggressive words. No "death," "die," "kill," "hate." Use playful, energetic alternatives.
 4. **Reproduce Incentives Exactly.** Use the reward/incentive text exactly as provided in the brief. Do not calculate, combine, or reinterpret quantities.
 5. **No Game Name in Copy.** Never include the game name in any copy field. The game name is already visible as metadata on the store page.
+6. **No Invented Context.** Never add time-limited framing, event-page references, reward details, or any specifics not present in the brief. If the brief doesn't mention it, the copy must not mention it.
 
 ### Localization Rules
 
