@@ -60,9 +60,11 @@ Metadata requires keyword data. If not provided in the brief, ask the user for i
 
 Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
-## Step 5: Save (Optional)
+## Step 5: Save
 
-If a vault is configured, save output to:
-`$ASO_VAULT/Clients/{publisher}/{game}/Metadata/{locale} {date}.md`
+After the user approves, save the output:
 
-Create the Metadata directory if it doesn't exist. If no vault, present the final metadata for the user to copy.
+- **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Metadata/{locale} {date}.md`
+- **Without vault:** `output/{game}/Metadata/{locale} {date}.md` (relative to the aso-toolkit repo root)
+
+Create directories if they don't exist.

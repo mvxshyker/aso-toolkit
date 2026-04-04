@@ -82,9 +82,11 @@ Apply ALL loaded rules simultaneously. Write in the exact output format specifie
 
 Launch the `aso-copy-checker` agent with the full copy block and paths to every rules file you loaded. Loop until PASS. Present the final copy with the compliance report.
 
-## Step 6: Save (Optional)
+## Step 6: Save
 
-If a vault is configured, save output to:
-`$ASO_VAULT/Clients/{publisher}/{game}/Events/{event-name} {date}.md`
+After the user approves, save the output:
 
-Create the Events directory if it doesn't exist. If no vault, present the final copy for the user to copy.
+- **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Events/{event-name} {date}.md`
+- **Without vault:** `output/{game}/Events/{event-name} {date}.md` (relative to the aso-toolkit repo root)
+
+Create directories if they don't exist. Before writing new copy, read the last 5 saved events for the same game to avoid repeating verbs, hooks, and sentence structures.

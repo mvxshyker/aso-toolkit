@@ -31,11 +31,25 @@ Skills launch these sub-agents automatically during their workflow:
 | `aso-copy-checker` | Haiku | Verifies written copy against all applicable rules and character limits. Returns a structured pass/fail compliance report per field. |
 | `aso-ip-researcher` | Haiku | Researches character lore, abilities, and IP context via web search. Returns a structured lore brief — facts only, no marketing copy. |
 
+## Output
+
+Every approved piece of copy is saved locally so the skills can learn from your past work — avoiding repeated verbs, hooks, and sentence structures across events. Without a vault, output is saved to `output/` in this repo (gitignored, stays local):
+
+```
+output/
+  {game}/
+    Events/         # Approved store event copy
+    Nominations/    # Approved nomination pitches
+    Metadata/       # Approved metadata sets
+```
+
+The more you use the toolkit, the better it gets at producing varied, non-repetitive copy for each game.
+
 ## Two Modes
 
 ### Quick Start (no setup needed)
 
-Just install and run. The skills use general ASO best practices and platform character limits. You provide game-specific details in your brief. Good for one-off copy or trying things out.
+Just install and run. The skills use general ASO best practices and platform character limits. You provide game-specific details in your brief. Approved output is saved to `output/` so the skills build context over time.
 
 ### Power User (bring your own knowledge base)
 

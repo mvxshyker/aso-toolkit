@@ -70,9 +70,11 @@ If the loaded rules require real-world lore, use WebSearch to find lore, abiliti
 
 Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
-## Step 5: Save (Optional)
+## Step 5: Save
 
-If a vault is configured, save output to:
-`$ASO_VAULT/Clients/{publisher}/{game}/Nominations/{event-name} {date}.md`
+After the user approves, save the output:
 
-Create the Nominations directory if it doesn't exist. If no vault, present the final pitch for the user to copy.
+- **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Nominations/{event-name} {date}.md`
+- **Without vault:** `output/{game}/Nominations/{event-name} {date}.md` (relative to the aso-toolkit repo root)
+
+Create directories if they don't exist.
