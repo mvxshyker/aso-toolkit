@@ -8,9 +8,11 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion, Ag
 
 # ASO Copy — Store Event & Promo Content
 
-## Step 0: Load Feedback
+## Step 0: Load Feedback + Version Check
 
 Read `~/.aso-toolkit/feedback/general.md` and `~/.aso-toolkit/feedback/{game}.md` if they exist. Apply any learned rules alongside the other rules. These files contain lessons from previous sessions.
+
+Check for updates: read `~/.aso-toolkit/VERSION`, then fetch `https://raw.githubusercontent.com/mvxshyker/aso-toolkit/main/VERSION`. If the remote version is newer, print: "ASO Toolkit update available ({remote}). Run: curl -fsSL https://raw.githubusercontent.com/mvxshyker/aso-toolkit/main/install.sh | bash" — then continue normally.
 
 ## Step 1: Load Knowledge
 

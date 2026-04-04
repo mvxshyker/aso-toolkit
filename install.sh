@@ -58,9 +58,10 @@ for agent_file in "$SOURCE/agents"/*.md; do
     echo "  ✓ Agent: $(basename "$agent_file" .md)"
 done
 
-# Create output and feedback directories
+# Create output and feedback directories, save version
 mkdir -p "${HOME}/.aso-toolkit/output"
 mkdir -p "${HOME}/.aso-toolkit/feedback"
+cp "$SOURCE/VERSION" "${HOME}/.aso-toolkit/VERSION" 2>/dev/null || echo "unknown" > "${HOME}/.aso-toolkit/VERSION"
 
 # Cleanup temp download
 [ -n "$TMPDIR_INSTALL" ] && rm -rf "$TMPDIR_INSTALL"
