@@ -12,7 +12,57 @@ allowed-tools: Read, Glob, Grep, Write, WebSearch, WebFetch, AskUserQuestion, Ag
 
 If `$ASO_VAULT` is set and `$ASO_VAULT/_Router.md` exists, read it. Follow the `copy` route. Read every file the vault links you to — follow all `[[wikilinks]]` until you've collected the general rules and any client/IP-specific rules for the game in the brief.
 
-If no vault is configured, use general ASO best practices and Apple/Google platform character limits. Ask the user for any game-specific or client-specific rules they want applied.
+If no vault is configured, apply the general rules below. Ask the user for any game-specific or IP-specific rules they want applied.
+
+### General Copy Rules
+
+1. **No Placeholders.** Every field must be final, publish-ready copy.
+2. **Ask if Missing Info.** If the brief is missing key details (character name, event type) — STOP and ask before writing.
+3. **Family-Friendly Only.** No violent, dark, or aggressive words. No "death," "die," "kill," "hate." Use playful, energetic alternatives.
+4. **Reproduce Incentives Exactly.** Use the reward/incentive text exactly as provided in the brief. Do not calculate, combine, or reinterpret quantities.
+
+### Localization Rules
+
+All copy gets translated into 10+ languages. Protect translation quality:
+- Simple, linear sentences: subject-verb-object. One idea per sentence.
+- NO em-dashes (—) or mid-sentence parenthetical asides.
+- NO idioms, puns, or English-specific wordplay.
+- NO ambiguous pronouns. Repeat the noun instead of "it" or "they."
+- Maximum two adjectives before a noun.
+
+### Character Limits
+
+Subtract 10 characters from every platform limit for localization headroom. The result is your hard limit.
+
+**Apple In-App Event:**
+
+| Field | Platform Limit | Hard Limit |
+|-------|---------------|------------|
+| Event Name | 30 | 20 |
+| Short Description | 50 | 40 |
+| Long Description | 120 | 110 |
+
+**Google Play Promo Content:**
+
+| Field | Platform Limit | Hard Limit |
+|-------|---------------|------------|
+| Title | 80 | 70 |
+| Description | 500 | 490 |
+
+### Output Format
+
+```
+=== APPLE IN-APP EVENT ===
+Event Name: [text] ([count])
+Short Description: [text] ([count])
+Long Description: [text] ([count])
+
+=== GOOGLE PLAY PROMO CONTENT ===
+Title: [text] ([count])
+Description: [text] ([count])
+```
+
+Print character count in parentheses after every field.
 
 ## Step 2: Validate the Brief
 
