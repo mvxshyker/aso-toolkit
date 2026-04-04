@@ -54,10 +54,8 @@ Print character count in parentheses after every field.
 
 Search for existing output matching the brief (same game/locale). Check both the vault Metadata folder and `~/.aso-toolkit/output/`. If a match is found, show it to the user and ask:
 
-1. **Rewrite from scratch** — delete the old output and start fresh
-2. **Fix specific issues** — ask what they didn't like, fix only those parts
-
-If fixing: after the user describes the issue, apply the fix and proceed to Step 7 (Evolve) to save the lesson.
+1. **Anything to improve?** — user describes what's wrong. Fix those parts, save the feedback (see Step 6), replace the old output.
+2. **Rewrite from scratch** — delete the old output, continue to Step 3 as a fresh run.
 
 ## Step 3: Validate the Brief
 
@@ -73,18 +71,21 @@ Metadata requires keyword data. If not provided in the brief, ask the user for i
 
 Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
-## Step 6: Save
+## Step 6: Approve and Save
 
-After the user approves, save the output:
+Present the final metadata and ask the user:
+
+1. **Approve** — save the output and continue
+2. **Anything to improve?** — user describes what's wrong. Fix those parts, then ask again.
+
+Loop until approved. On approval, save the output:
 
 - **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Metadata/{locale} {date}.md`
 - **Without vault:** `~/.aso-toolkit/output/{game}/Metadata/{locale} {date}.md`
 
 Create directories if they don't exist.
 
-## Step 7: Evolve
-
-After every completed run, ask the user: "Anything to improve for next time?" If they give feedback:
+If the user gave any feedback during this step, save it as a rule:
 
 1. Ask: is this feedback **general** (all games) or **specific** to this game?
 2. **General** → append to `~/.aso-toolkit/feedback/general.md`

@@ -73,10 +73,8 @@ Print character count in parentheses after every field.
 
 Search for existing output matching the brief (same character/event). Check both the vault Events folder and `~/.aso-toolkit/output/`. If a match is found, show it to the user and ask:
 
-1. **Rewrite from scratch** — delete the old output and start fresh
-2. **Fix specific issues** — ask what they didn't like, fix only those parts
-
-If fixing: after the user describes the issue, apply the fix and proceed to Step 7 (Evolve) to save the lesson.
+1. **Anything to improve?** — user describes what's wrong. Fix those parts, save the feedback (see Step 7), replace the old output.
+2. **Rewrite from scratch** — delete the old output, continue to Step 3 as a fresh run.
 
 ## Step 3: Validate the Brief
 
@@ -96,18 +94,21 @@ Apply ALL loaded rules simultaneously. Write in the exact output format specifie
 
 Launch the `aso-copy-checker` agent with the full copy block and paths to every rules file you loaded. Loop until PASS. Present the final copy with the compliance report.
 
-## Step 7: Save
+## Step 7: Approve and Save
 
-After the user approves, save the output:
+Present the final copy and ask the user:
+
+1. **Approve** — save the output and continue
+2. **Anything to improve?** — user describes what's wrong. Fix those parts, then ask again.
+
+Loop until approved. On approval, save the output:
 
 - **With vault:** `$ASO_VAULT/Clients/{publisher}/{game}/Events/{event-name} {date}.md`
 - **Without vault:** `~/.aso-toolkit/output/{game}/Events/{event-name} {date}.md`
 
 Create directories if they don't exist. Before writing new copy, read the last 5 saved events for the same game to avoid repeating verbs, hooks, and sentence structures.
 
-## Step 8: Evolve
-
-After every completed run, ask the user: "Anything to improve for next time?" If they give feedback:
+If the user gave any feedback during this step, save it as a rule:
 
 1. Ask: is this feedback **general** (all games) or **specific** to this game?
 2. **General** → append to `~/.aso-toolkit/feedback/general.md`
