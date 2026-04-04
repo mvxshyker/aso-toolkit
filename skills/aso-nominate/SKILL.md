@@ -77,11 +77,18 @@ Check against the client's "Only Ask If Missing" section. Apply all defaults the
 
 ## Step 4: Research (If Required by IP Rules)
 
-If the loaded rules require real-world lore, use WebSearch to find lore, abilities, origin, and context for the character. The nomination must reference real IP context — not generic filler.
+If the loaded rules require real-world lore, launch four research agents **in parallel**:
+
+1. `aso-research-lore` — origin, abilities, personality, relationships
+2. `aso-research-ingame` — in-game abilities, tier, meta role
+3. `aso-research-visual` — visual identity, thematic keywords, marketing angles
+4. `aso-research-cultural` — movies, TV, comics, fan sentiment, editorial hooks
+
+When all four complete, launch `aso-research-synthesizer` with the four briefs. Use the synthesized output to write the nomination.
 
 ## Step 5: Write the Nomination Pitch
 
-Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
+Apply ALL loaded rules simultaneously. Use the synthesized research — especially the "best copy angle" and "cultural relevance" for the editorial pitch. Write in the exact output format specified in the guidelines. Print character counts after every field.
 
 ## Step 6: Approve and Save
 

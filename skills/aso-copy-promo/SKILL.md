@@ -86,11 +86,20 @@ Check against the client's "Only Ask If Missing" section. Apply all defaults the
 
 ## Step 4: Research (If Required by IP Rules)
 
-If the loaded rules require real-world lore, launch the `aso-ip-researcher` agent in the background with the subject, game, and any event context from the brief. Continue to Step 4 while it works.
+If the loaded rules require real-world lore, launch four research agents **in parallel**:
+
+1. `aso-research-lore` — origin, abilities, personality, relationships
+2. `aso-research-ingame` — in-game abilities, tier, meta role
+3. `aso-research-visual` — visual identity, thematic keywords, marketing angles
+4. `aso-research-cultural` — movies, TV, comics, fan sentiment, editorial hooks
+
+Pass each agent: the subject, game name, and any event context from the brief.
+
+When all four complete, launch `aso-research-synthesizer` with the four briefs. Use the synthesized output to write the copy — follow its "best copy angle" and "must-use details."
 
 ## Step 5: Write the Copy
 
-Apply ALL loaded rules simultaneously. Write in the exact output format specified in the guidelines. Print character counts after every field.
+Apply ALL loaded rules simultaneously. Use the synthesized research — especially the "best copy angle" and "must-use details." Write in the exact output format specified in the guidelines. Print character counts after every field.
 
 ## Step 6: Verify the Copy
 
