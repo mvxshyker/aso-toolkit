@@ -16,6 +16,23 @@ If `$ASO_VAULT` is set and `$ASO_VAULT/_Router.md` exists, read it. Follow the `
 
 If no vault is configured, apply the general rules below. Ask the user for any game-specific rules they want applied.
 
+### General Rules
+
+1. **No Placeholders.** Every field must be final, publish-ready.
+2. **Never fabricate details.** If brief is missing key info (event type, star rating, localization languages), ask before writing.
+3. **No dates or numbers.** Never include specific months, dates, or numbers in any field.
+4. **No game name.** The game name is already visible as store metadata.
+5. **No repetition between fields.** Do not repeat the same keywords or phrases across Event Name, Helpful Details, and Description.
+
+### Character Limits
+
+| Field | Hard Limit |
+|-------|------------|
+| Helpful Details | 500 chars |
+| Description | 500 chars |
+
+Always print character count in parentheses after Helpful Details and Description.
+
 ### Nomination Structure
 
 | Field | Notes |
@@ -23,18 +40,16 @@ If no vault is configured, apply the general rules below. Ask the user for any g
 | Event Name | Name of the existing in-app event being nominated |
 | Related In-App Events | Any related events, or "None" |
 | New Event Submission | Yes or No |
-| Helpful Details (~500 chars) | Three bullet points: content quality, localization reach, cultural/release moment |
-| Description (500 chars) | Single editorial paragraph: game + event name, event type, gameplay hook, reward, one differentiator, audience fit |
+| Helpful Details | Three bullet points: content quality, localization reach, cultural/release moment |
+| Description | Single editorial paragraph: game + event name, event type, gameplay hook, reward, one differentiator, audience fit |
 
 ### Writing Rules
 
-1. **Character counts are hard limits.** Description never exceeds 500 chars. Always print count after each field.
-2. **Helpful Details are factual.** Never invent localization languages, premiere dates, or approvals not in the brief.
-3. **Description is a pitch, not player copy.** Third person about the game and event. Do not address the player ("you"). Write as if presenting to an editorial curator.
-4. **Never fabricate details.** If brief is missing key info (event type, star rating, localization languages), ask before writing.
-5. **Localization languages go in Helpful Details only**, not in Description.
-6. **One differentiator rule.** Description leads with one strong editorial hook, not a list.
-7. **Tone:** Professional, editorial, confident. No exclamation marks. No hyperbole.
+1. **Helpful Details are factual.** Never invent localization languages, premiere dates, or approvals not in the brief.
+2. **Description is a pitch, not player copy.** Third person about the game and event. Do not address the player ("you"). Write as if presenting to an editorial curator.
+3. **Localization languages go in Helpful Details only**, not in Description.
+4. **One differentiator rule.** Description leads with one strong editorial hook, not a list.
+5. **Tone:** Professional, editorial, confident. No exclamation marks. No hyperbole.
 
 ### Output Format
 
