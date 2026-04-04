@@ -27,17 +27,18 @@ You receive:
 ### Character Limits
 For each field, verify `actual_count <= hard_limit`:
 
-| Field | Platform Limit | Hard Limit (−10) |
+| Field | Platform Limit | Hard Limit (−5) |
 |-------|---------------|-------------------|
-| Apple Event Name | 30 | 20 |
-| Apple Short Description | 50 | 40 |
-| Apple Long Description | 120 | 110 |
-| Google Title | 80 | 70 |
-| Google Description | 500 | 490 |
+| Apple Event Name | 30 | 25 |
+| Apple Short Description | 50 | 45 |
+| Apple Long Description | 120 | 115 |
+| Google Title | 80 | 75 |
+| Google Description | 500 | 495 |
 
 ### General Copy Rules
 - [ ] No placeholders — every field is final, publish-ready
 - [ ] No delivery mechanics language ("content update", "special update")
+- [ ] No game name in any copy field (game name is already visible as store metadata)
 - [ ] Mechanic verbs capitalized (Match, Battle, Collect, etc.)
 - [ ] Action verbs varied (not repeating "Recruit" or any single verb)
 - [ ] Tone is heroic, urgent, exciting — speaks to "you/your"

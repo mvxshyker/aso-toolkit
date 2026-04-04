@@ -20,6 +20,7 @@ If no vault is configured, apply the general rules below. Ask the user for any g
 2. **Ask if Missing Info.** If the brief is missing key details (character name, event type) — STOP and ask before writing.
 3. **Family-Friendly Only.** No violent, dark, or aggressive words. No "death," "die," "kill," "hate." Use playful, energetic alternatives.
 4. **Reproduce Incentives Exactly.** Use the reward/incentive text exactly as provided in the brief. Do not calculate, combine, or reinterpret quantities.
+5. **No Game Name in Copy.** Never include the game name in any copy field. The game name is already visible as metadata on the store page.
 
 ### Localization Rules
 
@@ -32,22 +33,22 @@ All copy gets translated into 10+ languages. Protect translation quality:
 
 ### Character Limits
 
-Subtract 10 characters from every platform limit for localization headroom. The result is your hard limit.
+Subtract 5 characters from every platform limit for localization headroom. The result is your hard limit.
 
 **Apple In-App Event:**
 
 | Field | Platform Limit | Hard Limit |
 |-------|---------------|------------|
-| Event Name | 30 | 20 |
-| Short Description | 50 | 40 |
-| Long Description | 120 | 110 |
+| Event Name | 30 | 25 |
+| Short Description | 50 | 45 |
+| Long Description | 120 | 115 |
 
 **Google Play Promo Content:**
 
 | Field | Platform Limit | Hard Limit |
 |-------|---------------|------------|
-| Title | 80 | 70 |
-| Description | 500 | 490 |
+| Title | 80 | 75 |
+| Description | 500 | 495 |
 
 ### Output Format
 
