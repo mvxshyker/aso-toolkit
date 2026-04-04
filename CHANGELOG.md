@@ -1,5 +1,27 @@
 # Changelog
 
+## v1.2.0 — 2026-04-04
+
+### New
+- Parallel research pipeline: 4 agents (lore, in-game, visual, cultural) + synthesizer replace single researcher
+- `/aso:nominate` bulk mode: run with no args to nominate all events missing nominations
+- `/aso:nominate` uses existing event copy as context — skips redundant research
+- General rules + character limits baked into nominate skill fallback
+
+### Improved
+- Feedback writes directly to skill or vault — no separate feedback files, no Step 0
+- Skills self-evolve: user corrections update the installed skill in place
+
+### Agents
+- `aso-research-lore` — canonical origin, abilities, relationships
+- `aso-research-ingame` — in-game kit, tier, meta role
+- `aso-research-visual` — visual identity, marketing angles
+- `aso-research-cultural` — movies, TV, fan sentiment, editorial hooks
+- `aso-research-synthesizer` — combines 4 briefs into opinionated copy direction
+- Removed: `aso-ip-researcher` (replaced by pipeline above)
+
+---
+
 ## v1.1.0 — 2026-04-04
 
 ### New
