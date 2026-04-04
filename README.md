@@ -1,8 +1,10 @@
 # ASO Toolkit
 
-Slash commands for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that write App Store Optimization copy — store event descriptions, promo content, editorial nomination pitches, and app metadata.
+Slash commands for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that write App Store Optimization copy — store event descriptions, promo content, and editorial nomination pitches.
 
-Works out of the box with general ASO knowledge. Connect your own knowledge base for client-specific rules, IP guidelines, and custom defaults.
+Works out of the box with general ASO knowledge. Every session ends with a feedback loop — your corrections get written back into the skill as permanent rules. No prompt tuning. The tool tunes itself to match exactly how you want your copy written.
+
+Connect your own knowledge base for client-specific rules, IP guidelines, and custom defaults.
 
 ## Install
 
@@ -17,7 +19,6 @@ Restart Claude Code. That's it.
 | Command | Description |
 |---------|-------------|
 | `/aso:copy-promo` | Write store event & promo copy (Apple In-App Events + Google Play) |
-| `/aso:copy-metadata` | Write optimized iOS App Store metadata (name, subtitle, keywords, description) |
 | `/aso:nominate` | Write Apple editorial nomination pitches |
 
 ## Agents
@@ -38,10 +39,9 @@ Every approved piece of copy is saved locally so the skills can learn from your 
   {game}/
     Events/         # Approved store event copy
     Nominations/    # Approved nomination pitches
-    Metadata/       # Approved metadata sets
 ```
 
-The more you use the toolkit, the better it gets at producing varied, non-repetitive copy for each game.
+The more you use the toolkit, the better it gets — varied copy, fewer corrections, and rules that reflect your standards.
 
 ## Two Modes
 
@@ -94,7 +94,6 @@ your-knowledge-base/
 |--------|----------|
 | `copy` | [[Store Event Copy Guidelines]] |
 | `nominate` | [[Apple Event Nomination Guidelines]] |
-| `metadata` | [[iOS Metadata Guidelines]] |
 ```
 
 ## License

@@ -15,7 +15,6 @@ Every `/aso:*` skill checks for `$ASO_VAULT/_Router.md`. If found, it follows th
 ```
 skills/              # Slash commands (installed to ~/.claude/skills/)
   aso-copy-promo/    # /aso:copy-promo → store event & promo copy
-  aso-copy-metadata/ # /aso:copy-metadata → iOS App Store metadata
   aso-nominate/      # /aso:nominate → Apple editorial nomination pitch
 agents/              # Sub-agents (installed to ~/.claude/agents/)
 install.sh           # Copies skills/agents to ~/.claude/
